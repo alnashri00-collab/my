@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفهوم الحاسب ومكوناته</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .section-active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <h2 class="text-2xl font-semibold mb-2">الصف الأول المتوسط - المهارات الرقمية</h2>
+                <p class="text-lg opacity-90">معلم المادة : محمد الناشري</p>
+            </div>
+            <h1 class="text-4xl font-bold mb-4">💻 مفهوم الحاسب ومكوناته</h1>
+            <p class="text-xl opacity-90">دليل شامل لفهم أجهزة الحاسب وأنواعها ومكوناتها</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-2 py-4">
+                <button onclick="showSection('concept')" id="btn-concept" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-indigo-100 text-indigo-700 hover:bg-indigo-200">
+                    📖 المفهوم
+                </button>
+                <button onclick="showSection('types')" id="btn-types" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                    🖥️ الأنواع
+                </button>
+                <button onclick="showSection('components')" id="btn-components" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                    ⚙️ المكونات
+                </button>
+                <button onclick="showSection('parts')" id="btn-parts" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                    🔧 الأجزاء الرئيسية
+                </button>
+                <button onclick="showSection('peripherals')" id="btn-peripherals" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                    🔌 الأجهزة الملحقة
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Concept Section -->
+        <section id="concept-section" class="fade-in">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl ml-3">💡</span>
+                    مفهوم الحاسب
+                </h2>
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-r-4 border-indigo-500">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        هو جهاز إلكتروني لديه القدرة على معالجة وتخزين واسترجاع البيانات، ويمكن من خلاله إنشاء المستندات والرسوم والاستماع إلى الصوتيات ومشاهدة مقاطع الفيديو واللعب والتواصل مع الأصدقاء.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-4xl mb-2">📊</div>
+                        <h3 class="font-semibold text-gray-800">معالجة البيانات</h3>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-4xl mb-2">💾</div>
+                        <h3 class="font-semibold text-gray-800">تخزين المعلومات</h3>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-4xl mb-2">🎮</div>
+                        <h3 class="font-semibold text-gray-800">الترفيه والألعاب</h3>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <div class="text-4xl mb-2">🌐</div>
+                        <h3 class="font-semibold text-gray-800">التواصل والشبكات</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types Section -->
+        <section id="types-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl ml-3">🖥️</span>
+                    أنواع أجهزة الحاسب
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Personal Computers -->
+                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-2xl ml-2">💻</span>
+                            الحاسبات الشخصية
+                        </h3>
+                        <p class="text-gray-600 mb-4">أكثر أنواع الحاسبات شيوعاً ومن أمثلتها:</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <div class="text-2xl mb-2">🖥️</div>
+                                <h4 class="font-semibold">الحاسب المكتبي</h4>
+                                <p class="text-sm text-gray-600">يتكون من أجزاء متصلة</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <div class="text-2xl mb-2">💻</div>
+                                <h4 class="font-semibold">الحاسب المحمول</h4>
+                                <p class="text-sm text-gray-600">خفيف الوزن وقابل للحمل</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <div class="text-2xl mb-2">📱</div>
+                                <h4 class="font-semibold">الحاسب اللوحي</h4>
+                                <p class="text-sm text-gray-600">بدون لوحة مفاتيح</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <div class="text-2xl mb-2">📲</div>
+                                <h4 class="font-semibold">الهواتف الذكية</h4>
+                                <p class="text-sm text-gray-600">حاسبات لوحية مصغرة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Servers -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🖲️</span>
+                            الخوادم
+                        </h3>
+                        <p class="text-gray-600">حاسب مركزي يستخدم في المؤسسات متوسطة الحجم ويسمح بتعدد المستخدمين</p>
+                    </div>
+
+                    <!-- Supercomputers -->
+                    <div class="bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">⚡</span>
+                            أجهزة الحاسب العملاقة
+                        </h3>
+                        <p class="text-gray-600">أجهزة قوية جداً وذات قدرة معالجة عالية تجري ملايين الحسابات في نفس الوقت</p>
+                    </div>
+
+                    <!-- Gaming Consoles -->
+                    <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🎮</span>
+                            مشغلات ألعاب الفيديو
+                        </h3>
+                        <p class="text-gray-600">تتيح لك لعب ألعاب الفيديو بشكل فردي أو جماعي عبر الإنترنت</p>
+                    </div>
+
+                    <!-- Embedded Systems -->
+                    <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🔧</span>
+                            أجهزة بحاسبات مدمجة
+                        </h3>
+                        <p class="text-gray-600">أجهزة تتضمن حاسبات مدمجة تقوم بمهام محددة كأجهزة الصراف الآلي والسيارات</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section id="components-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl ml-3">⚙️</span>
+                    مكونات الحاسب
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-6 card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">🔧</span>
+                            المكونات المادية
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            هي الأجزاء المادية الكهربائية والميكانيكية التي يتكون منها الحاسب مثل الشاشة واللوحة الأم وغيرها.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">الشاشة</span>
+                            <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">اللوحة الأم</span>
+                            <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">المعالج</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg p-6 card-hover">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">💿</span>
+                            البرامج
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            مجموعة من التطبيقات المثبتة على الحاسب التي تحتاجها لتشغيله مثل نظام التشغيل والتطبيقات المختلفة.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">نظام التشغيل</span>
+                            <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">الفوتوشوب</span>
+                            <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">مايكروسوفت وورد</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Parts Section -->
+        <section id="parts-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl ml-3">🔧</span>
+                    أجزاء الحاسب الرئيسية
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🏗️</span>
+                            اللوحة الأم
+                        </h3>
+                        <p class="text-gray-600">المركز الرئيس للحاسب وتتصل به ومن خلاله جميع أجزاء الحاسب الأخرى</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🧠</span>
+                            المعالج (وحدة المعالجة المركزية)
+                        </h3>
+                        <p class="text-gray-600 mb-3">عقل الحاسب الذي ينفذ العمليات الحسابية والمنطقية</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-700">وحدة الحساب والمنطق</h4>
+                                <p class="text-sm text-gray-600">تقوم بجميع العمليات الحسابية والمنطقية</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-700">وحدة التحكم</h4>
+                                <p class="text-sm text-gray-600">تتحكم في سير البيانات وتفك تشفيرها</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">💾</span>
+                            ذاكرة الوصول العشوائي
+                        </h3>
+                        <p class="text-gray-600">الذاكرة الرئيسة للحاسب تقوم بتخزين البيانات المطلوب معالجتها لفترة قصيرة</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">💿</span>
+                            القرص الصلب
+                        </h3>
+                        <p class="text-gray-600">جهاز التخزين الرئيس في الحاسب ويستخدم لتخزين البيانات واسترجاعها</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-lg p-6 card-hover">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                            <span class="text-2xl ml-2">🎮</span>
+                            بطاقة الفيديو
+                        </h3>
+                        <p class="text-gray-600">تحوّل البيانات من المعالج إلى صور على الشاشة، وكلما زادت قدرتها زادت جودة الصور</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peripherals Section -->
+        <section id="peripherals-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl ml-3">🔌</span>
+                    الأجهزة الملحقة بالحاسب
+                </h2>
+                
+                <div class="space-y-8">
+                    <!-- Input Devices -->
+                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">⌨️</span>
+                            أجهزة الإدخال
+                        </h3>
+                        <p class="text-gray-600 mb-4">تساعد المستخدم على إدخال البيانات أو التحكم في الحاسب</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">⌨️</div>
+                                <h4 class="font-semibold">لوحة المفاتيح</h4>
+                                <p class="text-sm text-gray-600">لإدخال النصوص والأوامر</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🖱️</div>
+                                <h4 class="font-semibold">الفأرة</h4>
+                                <p class="text-sm text-gray-600">للإشارة وتنفيذ الأوامر</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🎮</div>
+                                <h4 class="font-semibold">لوح الألعاب</h4>
+                                <p class="text-sm text-gray-600">وحدة تحكم بالألعاب</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🎤</div>
+                                <h4 class="font-semibold">الميكرفون</h4>
+                                <p class="text-sm text-gray-600">لتسجيل الصوت</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">📷</div>
+                                <h4 class="font-semibold">الكاميرا</h4>
+                                <p class="text-sm text-gray-600">لإدخال الصور والفيديو</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🖨️</div>
+                                <h4 class="font-semibold">الماسح الضوئي</h4>
+                                <p class="text-sm text-gray-600">لإدخال الصور والمستندات</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Devices -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">🖥️</span>
+                            أجهزة الإخراج
+                        </h3>
+                        <p class="text-gray-600 mb-4">تعرض نتائج معالجة البيانات</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🖥️</div>
+                                <h4 class="font-semibold">الشاشة</h4>
+                                <p class="text-sm text-gray-600">جهاز الإخراج الرئيس</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🖨️</div>
+                                <h4 class="font-semibold">الطابعة</h4>
+                                <p class="text-sm text-gray-600">لإخراج المستندات على ورق</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🔊</div>
+                                <h4 class="font-semibold">مكبرات الصوت</h4>
+                                <p class="text-sm text-gray-600">لإخراج الصوت</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input/Output Devices -->
+                    <div class="bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">🔄</span>
+                            أجهزة الإدخال / الإخراج
+                        </h3>
+                        <p class="text-gray-600 mb-4">تمكنك من إدخال وإخراج البيانات في نفس الوقت</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">📱</div>
+                                <h4 class="font-semibold">شاشة اللمس</h4>
+                                <p class="text-sm text-gray-600">للإدخال والعرض معاً</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🥽</div>
+                                <h4 class="font-semibold">نظارة الواقع المعزز</h4>
+                                <p class="text-sm text-gray-600">لعرض المعلومات والتفاعل</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">🕶️</div>
+                                <h4 class="font-semibold">نظارة الواقع الافتراضي</h4>
+                                <p class="text-sm text-gray-600">لمحاكاة البيئات</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Storage Devices -->
+                    <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="text-3xl ml-2">💾</span>
+                            أجهزة التخزين
+                        </h3>
+                        <p class="text-gray-600 mb-4">تقاس سعتها بالبايت والكيلوبايت والميجابايت والجيجابايت والتيرابايت</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">💿</div>
+                                <h4 class="font-semibold">القرص الصلب الخارجي</h4>
+                                <p class="text-sm text-gray-600">جهاز تخزين محمول</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">💽</div>
+                                <h4 class="font-semibold">القرص المضغوط</h4>
+                                <p class="text-sm text-gray-600">CD للتخزين الضوئي</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">📀</div>
+                                <h4 class="font-semibold">قرص الفيديو الرقمي</h4>
+                                <p class="text-sm text-gray-600">DVD لسعة أكبر</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                                <div class="text-2xl mb-2">💎</div>
+                                <h4 class="font-semibold">قرص بلوراي</h4>
+                                <p class="text-sm text-gray-600">BluRay عالي الجودة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg mb-2">💻 دليل شامل لفهم أجهزة الحاسب</p>
+            <p class="text-gray-400">تعلم المفاهيم الأساسية للحاسب ومكوناته بطريقة تفاعلية</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = ['concept', 'types', 'components', 'parts', 'peripherals'];
+            sections.forEach(section => {
+                const element = document.getElementById(section + '-section');
+                const button = document.getElementById('btn-' + section);
+                
+                if (section === sectionName) {
+                    element.classList.remove('hidden');
+                    element.classList.add('fade-in');
+                    button.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                    button.classList.add('section-active');
+                } else {
+                    element.classList.add('hidden');
+                    element.classList.remove('fade-in');
+                    button.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                    button.classList.remove('section-active');
+                }
+            });
+        }
+
+        // Initialize with concept section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('concept');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98863ced300bed45',t:'MTc1OTQyOTQ4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
