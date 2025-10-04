@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الثالث: إعدادات نظام التشغيل الأساسية</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #4a5568;
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .lesson-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #4a5568;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .step-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 20px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .step-description {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 4px solid #e17055;
+        }
+
+        .highlight-box h3 {
+            color: #2d3748;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .keyboard-shortcut {
+            background: #2d3748;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 0 2px;
+        }
+
+        .interactive-demo {
+            background: #edf2f7;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .window-demo {
+            display: none;
+            background: white;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .window-demo.show {
+            display: inline-block;
+        }
+
+        .window-header {
+            background: #4a5568;
+            color: white;
+            padding: 8px;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .footer {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-btn {
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🖥️ الدرس الثالث: إعدادات نظام التشغيل الأساسية</h1>
+            <p>تعلم كيفية تخصيص وإدارة نظام التشغيل لتحسين تجربة الاستخدام والكفاءة</p>
+        </div>
+
+        <div class="lesson-nav">
+            <button class="nav-btn active" onclick="showSection('settings')">فتح الإعدادات</button>
+            <button class="nav-btn" onclick="showSection('desktop')">تخصيص سطح المكتب</button>
+            <button class="nav-btn" onclick="showSection('windows')">ترتيب النوافذ</button>
+            <button class="nav-btn" onclick="showSection('search')">البحث والمساعدة</button>
+            <button class="nav-btn" onclick="showSection('files')">الملفات المخفية</button>
+        </div>
+
+        <div id="settings" class="content-section active">
+            <h2 class="section-title">⚙️ فتح الإعدادات لتخصيص النظام</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">فتح الإعدادات الرئيسية</div>
+                    <div class="step-description">قائمة ابدأ ← الإعدادات أو استخدم الاختصار <span class="keyboard-shortcut">Win + I</span></div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">تخصيص إعدادات الفأرة</div>
+                    <div class="step-description">الأجهزة ← الفأرة لتخصيص أزرار الفأرة وسلوك النقر والحساسية</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">إدارة البرامج المثبتة</div>
+                    <div class="step-description">قائمة ابدأ ← البرامج ← البرامج والميزات لتثبيت أو إزالة البرامج</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>💡 نصيحة مهمة</h3>
+                <p>لتشغيل البرامج بكفاءة، يمكن ترتيب البرامج المفتوحة على سطح المكتب باستخدام شريط المهام، كما يمكن إدارة البرامج عبر مدير المهام لضمان أفضل استغلال لموارد النظام.</p>
+            </div>
+        </div>
+
+        <div id="desktop" class="content-section">
+            <h2 class="section-title">🖼️ تخصيص سطح المكتب وشريط المهام</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">قفل شريط المهام</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن على شريط المهام ← قفل جميع أشرطة المهام</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">تغيير حجم الأيقونات</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن على سطح المكتب ← عرض ← اختر الحجم (صغير/متوسط/كبير)</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">ترتيب الأيقونات تلقائياً</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن ← ترتيب الأيقونات تلقائياً</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">محاذاة الأيقونات للشبكة</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن ← محاذاة الأيقونات على الشبكة</div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>تجربة تفاعلية: تخصيص الأيقونات</h3>
+                <button class="demo-button" onclick="toggleIcons()">إظهار/إخفاء أيقونات سطح المكتب</button>
+                <div id="desktop-icons" style="margin-top: 15px;">
+                    <span style="font-size: 2rem; margin: 10px;">🗂️</span>
+                    <span style="font-size: 2rem; margin: 10px;">📁</span>
+                    <span style="font-size: 2rem; margin: 10px;">🖥️</span>
+                    <span style="font-size: 2rem; margin: 10px;">🗑️</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="windows" class="content-section">
+            <h2 class="section-title">🪟 ترتيب النوافذ للعمل بكفاءة</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">ترتيب النوافذ متداخلاً</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن على شريط المهام ← ترتيب النوافذ (Cascade)</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">عرض النوافذ مكدسة</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن على شريط المهام ← عرض النوافذ مكدسة</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">عرض النوافذ جنباً إلى جنب</div>
+                    <div class="step-description">انقر بزر الفأرة الأيمن على شريط المهام ← عرض النوافذ بجانب بعضها</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">إغلاق البرامج غير المستجيبة</div>
+                    <div class="step-description">استخدم <span class="keyboard-shortcut">Ctrl + Shift + Esc</span> لفتح مدير المهام ← إنهاء المهمة</div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>تجربة تفاعلية: ترتيب النوافذ</h3>
+                <button class="demo-button" onclick="arrangeWindows('cascade')">ترتيب متداخل</button>
+                <button class="demo-button" onclick="arrangeWindows('stack')">ترتيب مكدس</button>
+                <button class="demo-button" onclick="arrangeWindows('side')">جنباً إلى جنب</button>
+                <button class="demo-button" onclick="arrangeWindows('reset')">إعادة تعيين</button>
+                
+                <div id="windows-demo" style="margin-top: 20px; height: 200px; position: relative;">
+                    <div class="window-demo" id="window1">
+                        <div class="window-header">نافذة 1</div>
+                    </div>
+                    <div class="window-demo" id="window2">
+                        <div class="window-header">نافذة 2</div>
+                    </div>
+                    <div class="window-demo" id="window3">
+                        <div class="window-header">نافذة 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="search" class="content-section">
+            <h2 class="section-title">🔍 البحث والمساعدة للوصول السريع</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">فتح البحث</div>
+                    <div class="step-description">اضغط على أيقونة البحث في شريط المهام أو استخدم <span class="keyboard-shortcut">Win + S</span></div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">البحث في الإنترنت</div>
+                    <div class="step-description">اكتب استعلام البحث واختر "البحث في الإنترنت" من النتائج</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">فتح النتائج في المتصفح</div>
+                    <div class="step-description">انقر على "فتح النتائج في المتصفح" لعرض نتائج أكثر تفصيلاً</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">الوصول لمساعدة النظام</div>
+                    <div class="step-description">اضغط <span class="keyboard-shortcut">F1</span> أو ابحث عن "المساعدة" في قائمة ابدأ</div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>تجربة البحث</h3>
+                <input type="text" id="searchInput" placeholder="اكتب للبحث..." style="padding: 10px; border-radius: 20px; border: 2px solid #cbd5e0; width: 250px; text-align: right;">
+                <button class="demo-button" onclick="performSearch()">بحث</button>
+                <div id="searchResults" style="margin-top: 15px; text-align: right;"></div>
+            </div>
+        </div>
+
+        <div id="files" class="content-section">
+            <h2 class="section-title">📁 عرض الملفات المخفية</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">فتح مستكشف الملفات</div>
+                    <div class="step-description">اضغط <span class="keyboard-shortcut">Win + E</span> أو انقر على أيقونة المجلد في شريط المهام</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">الوصول لخيارات العرض</div>
+                    <div class="step-description">في شريط القوائم، انقر على "عرض" ← "إظهار/إخفاء"</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">تفعيل عرض العناصر المخفية</div>
+                    <div class="step-description">ضع علامة صح على "العناصر المخفية" لإظهار الملفات والمجلدات المخفية</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">الوصول للملفات المخفية</div>
+                    <div class="step-description">ستظهر الملفات المخفية بلون باهت، يمكنك الآن الوصول إليها للعرض أو التعديل</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>⚠️ تحذير مهم</h3>
+                <p>كن حذراً عند التعامل مع الملفات المخفية، فهي عادة ما تكون ملفات نظام مهمة. تعديل أو حذف هذه الملفات قد يؤثر على عمل النظام.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>محاكاة عرض الملفات</h3>
+                <button class="demo-button" onclick="toggleHiddenFiles()">إظهار/إخفاء الملفات المخفية</button>
+                <div id="file-list" style="margin-top: 15px; text-align: right;">
+                    <div style="margin: 5px 0;">📄 ملف عادي.txt</div>
+                    <div style="margin: 5px 0;">📁 مجلد عادي</div>
+                    <div id="hidden-files" style="display: none;">
+                        <div style="margin: 5px 0; opacity: 0.5;">📄 ملف مخفي.sys</div>
+                        <div style="margin: 5px 0; opacity: 0.5;">📁 مجلد مخفي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 معلم المادة: محمد الناشري</p>
+            <p>تم تصميم هذا الدرس التفاعلي لتسهيل تعلم إعدادات نظام التشغيل</p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // إزالة الحالة النشطة من جميع الأزرار
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // إظهار القسم المحدد
+            document.getElementById(sectionId).classList.add('active');
+            
+            // تفعيل الزر المحدد
+            event.target.classList.add('active');
+        }
+
+        function toggleIcons() {
+            const icons = document.getElementById('desktop-icons');
+            if (icons.style.display === 'none') {
+                icons.style.display = 'block';
+            } else {
+                icons.style.display = 'none';
+            }
+        }
+
+        function arrangeWindows(type) {
+            const windows = document.querySelectorAll('.window-demo');
+            
+            // إظهار جميع النوافذ أولاً
+            windows.forEach(window => {
+                window.classList.add('show');
+                window.style.position = 'absolute';
+            });
+            
+            switch(type) {
+                case 'cascade':
+                    windows[0].style.top = '10px';
+                    windows[0].style.left = '10px';
+                    windows[1].style.top = '30px';
+                    windows[1].style.left = '30px';
+                    windows[2].style.top = '50px';
+                    windows[2].style.left = '50px';
+                    break;
+                case 'stack':
+                    windows[0].style.top = '10px';
+                    windows[0].style.left = '10px';
+                    windows[1].style.top = '10px';
+                    windows[1].style.left = '220px';
+                    windows[2].style.top = '10px';
+                    windows[2].style.left = '430px';
+                    break;
+                case 'side':
+                    windows[0].style.top = '10px';
+                    windows[0].style.left = '10px';
+                    windows[0].style.width = '180px';
+                    windows[1].style.top = '10px';
+                    windows[1].style.left = '200px';
+                    windows[1].style.width = '180px';
+                    windows[2].style.top = '10px';
+                    windows[2].style.left = '390px';
+                    windows[2].style.width = '180px';
+                    break;
+                case 'reset':
+                    windows.forEach(window => {
+                        window.classList.remove('show');
+                        window.style.position = 'relative';
+                        window.style.top = 'auto';
+                        window.style.left = 'auto';
+                        window.style.width = '200px';
+                    });
+                    break;
+            }
+        }
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (searchTerm.trim() === '') {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+            
+            resultsDiv.innerHTML = `
+                <div style="background: #f7fafc; padding: 15px; border-radius: 10px; margin: 5px 0;">
+                    <strong>🔍 نتائج البحث عن: "${searchTerm}"</strong><br>
+                    📄 ملف: ${searchTerm}.txt<br>
+                    📁 مجلد: مجلد ${searchTerm}<br>
+                    🌐 البحث في الإنترنت عن "${searchTerm}"
+                </div>
+            `;
+        }
+
+        function toggleHiddenFiles() {
+            const hiddenFiles = document.getElementById('hidden-files');
+            if (hiddenFiles.style.display === 'none') {
+                hiddenFiles.style.display = 'block';
+            } else {
+                hiddenFiles.style.display = 'none';
+            }
+        }
+
+        // إضافة مستمع للبحث عند الضغط على Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9890dc612112ed45',t:'MTc1OTU0MDg2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
