@@ -1,846 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام التشغيل</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            box-sizing: border-box;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .section-active {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: white;
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans">
-    <!-- Header -->
-    <header class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-4">
-                <h2 class="text-2xl font-semibold mb-2">الصف الأول المتوسط - المهارات الرقمية</h2>
-                <p class="text-lg opacity-90">معلم المادة : محمد الناشري</p>
-            </div>
-            <h1 class="text-4xl font-bold mb-4">💻 نظام التشغيل</h1>
-            <p class="text-xl opacity-90">دليل شامل لفهم نظام التشغيل ومكوناته والتعامل مع الملفات</p>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-2 py-4">
-                <button onclick="showSection('intro')" id="btn-intro" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-indigo-100 text-indigo-700 hover:bg-indigo-200">
-                    💡 مفهوم النظام
-                </button>
-                <button onclick="showSection('components')" id="btn-components" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    ⚙️ المكونات
-                </button>
-                <button onclick="showSection('startup')" id="btn-startup" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    🚀 بدء التشغيل
-                </button>
-                <button onclick="showSection('desktop')" id="btn-desktop" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    🖥️ سطح المكتب
-                </button>
-                <button onclick="showSection('files')" id="btn-files" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    📁 إدارة الملفات
-                </button>
-                <button onclick="showSection('storage')" id="btn-storage" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    💾 أجهزة التخزين
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-8">
-        <!-- Intro Section -->
-        <section id="intro-section" class="fade-in">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">💡</span>
-                    نظام التشغيل
-                </h2>
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-r-4 border-indigo-500">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        إن مهمة نظام التشغيل هي التحكم بجهاز الحاسب وإدارة موارده بشكل صحيح. فنظام التشغيل يدير ذاكرة جهاز الحاسب المتاحة ويعمل مع وحدة المعالجة المركزية (Central Processing Unit)، وينشئ قائمة مرجعية بالبرامج والعمليات المراد تنفيذها وفقاً لمقدار الذاكرة التي يتطلبها كل برنامج والوقت الذي تستغرقه كل عملية محددة.
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        بالإضافة إلى ذلك فإن نظام التشغيل يدير الأجهزة الملحقة وأجهزة التخزين ويتولى متطلبات الطباعة وغيرها. كما أن من المهام الأساسية لنظام التشغيل تهيئة البيئة المناسبة للمستخدم للتفاعل مع جهاز الحاسب، وبمعنى آخر فإن نظام التشغيل يوفر جميع الأدوات التي يحتاجها المستخدم للتحكم بجهاز الحاسب.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-6 card-hover">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-3xl ml-2">🔧</span>
-                            المكونات المادية
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            هي الأجزاء المادية الكهربائية والميكانيكية التي يتكون منها الحاسب مثل الشاشة واللوحة الأم وغيرها.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg p-6 card-hover">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-3xl ml-2">💿</span>
-                            البرامج
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            مجموعة من التطبيقات المثبتة على الحاسب التي تحتاجها لتشغيله مثل نظام التشغيل والتطبيقات المختلفة.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Components Section -->
-        <section id="components-section" class="hidden">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">⚙️</span>
-                    نوعان من البرامج
-                </h2>
-                
-                <div class="space-y-6">
-                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-2xl ml-2">🖥️</span>
-                            أنظمة التشغيل
-                        </h3>
-                        <p class="text-gray-600 mb-4">البرامج الأساسية التي تتحكم في جهاز الحاسب وتدير موارده</p>
-                        <div class="bg-white p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-700 mb-2">الوظائف الرئيسية:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• إدارة ذاكرة الحاسب</li>
-                                <li>• التعامل مع وحدة المعالجة المركزية</li>
-                                <li>• إدارة الأجهزة الملحقة</li>
-                                <li>• توفير واجهة للتفاعل مع المستخدم</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-2xl ml-2">📱</span>
-                            التطبيقات
-                        </h3>
-                        <p class="text-gray-600 mb-4">هي نوع من البرامج التي يديرها المستخدم وتؤدي مهاماً محددة</p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-700">Microsoft Word</h4>
-                                <p class="text-sm text-gray-600">معالج النصوص</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-700">Microsoft Excel</h4>
-                                <p class="text-sm text-gray-600">جداول البيانات</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-700">Paint</h4>
-                                <p class="text-sm text-gray-600">الرسم والتصميم</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-700">WordPad</h4>
-                                <p class="text-sm text-gray-600">الدفتر المتقدم</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-yellow-50 border-r-4 border-yellow-400">
-                            <p class="text-sm text-gray-700">
-                                <strong>ملاحظة:</strong> يجب تثبيت التطبيقات في نظام تشغيل لتمكين المستخدم من الوصول إليها.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-2xl ml-2">🕰️</span>
-                            لمحة تاريخية
-                        </h3>
-                        <p class="text-gray-600 mb-4">تطور أنظمة التشغيل عبر الزمن:</p>
-                        <div class="space-y-3">
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-purple-700">واجهة سطر الأوامر (Command Line Interface)</h4>
-                                <p class="text-sm text-gray-600">في الماضي كان نظام التشغيل مجرد شاشة يكتب المستخدم بها الأوامر الصحيحة من أجل الحصول على النتائج.</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-purple-700">الواجهة الرسومية (Graphical User Interface)</h4>
-                                <p class="text-sm text-gray-600">لاحقاً ظهرت أنظمة التشغيل بواجهة المستخدم الرسومية التي سمحت للمستخدم برؤية جميع الملفات والمجلدات وكذلك أتاحت التحكم بها بالفأرة من خلال الإشارة إليها بأيقونات ورموز.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Startup Section -->
-        <section id="startup-section" class="hidden">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">🚀</span>
-                    بدء تشغيل جهاز الحاسب
-                </h2>
-                
-                <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-6 border-r-4 border-indigo-500 mb-6">
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        يبدأ تشغيل جهاز الحاسب عند الضغط على زر الطاقة أو التشغيل، فيقوم نظام الإدخال والإخراج الأساسي بتحديد مكونات جهاز الحاسب ثم يبدأ نظام التشغيل بالعمل. في العادة تكون الشاشة الأولى التي تراها هي واجهة المستخدم لتسجيل الدخول، وتسمح للمستخدم بتشغيل نظام التشغيل.
-                    </p>
-                </div>
-
-                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <span class="text-2xl ml-2">👥</span>
-                        حسابات المستخدمين المتعددة
-                    </h3>
-                    <p class="text-gray-600 mb-4">
-                        عندما يعمل أكثر من شخص على حاسب واحد، قد يرغبون بتخصيص بيئة التشغيل والبرامج والملفات والمجلدات الخاصة بهم، لهذا السبب تسمح لنا معظم أنظمة التشغيل بإنشاء عدة حسابات لعدة مستخدمين باستخدام اسم مستخدم وكلمة مرور.
-                    </p>
-                    
-                    <div class="bg-white p-4 rounded-lg">
-                        <h4 class="font-semibold text-green-700 mb-3">لتسجيل الدخول في ويندوز:</h4>
-                        <div class="space-y-2">
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm font-bold">1</span>
-                                <span class="text-gray-600">اكتب رقم التعريف الشخصي (PIN)</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm font-bold">2</span>
-                                <span class="text-gray-600">اضغط على زر Enter</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 p-4 bg-yellow-50 border-r-4 border-yellow-400">
-                    <h4 class="font-semibold text-yellow-800 mb-2">لمحة تاريخية</h4>
-                    <p class="text-sm text-gray-700">
-                        كان نظام التشغيل الأكثر شيوعاً هو إم إس-دوس (MS-DOS) ولكن مع ظهور واجهة المستخدم الرسومية أصبح نظاما تشغيل ماك أو إس (macOS) ومايكروسوفت ويندوز (Microsoft Windows) الأكثر شيوعاً.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Desktop Section -->
-        <section id="desktop-section" class="hidden">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">🖥️</span>
-                    سطح المكتب وعناصره
-                </h2>
-                
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-r-4 border-indigo-500 mb-6">
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        بعد تسجيل الدخول في شاشة نظام ويندوز تظهر الشاشة الرئيسية التي يُطلق عليها اسم سطح المكتب (Desktop)، التي تتألف من مساحة العمل وبعض الأيقونات وشريط المهام وزر البدء (Start). يجب أن يكون نظام التشغيل سهل الإمكان قدر ما يُمكن الجميع من استخدامه حتى عند معرفتهم بأساسيات جهاز الحاسب فقط، ويُسمى هذا بمفهوم سهولة الاستخدام (User friendly).
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-br from-purple-50 to-violet-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">🎨</span>
-                                مساحة العمل
-                            </h3>
-                            <p class="text-sm text-gray-600">المساحة التي تتفاعل معها مع العناصر المختلفة عند فتح نظام ويندوز.</p>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">🗂️</span>
-                                الأيقونات
-                            </h3>
-                            <p class="text-sm text-gray-600">عند تثبيت ويندوز لأول مرة تظهر أيقونة سلة المحذوفات فقط على سطح المكتب.</p>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">🚀</span>
-                                أيقونات بدء التشغيل
-                            </h3>
-                            <p class="text-sm text-gray-600">تمثل جميع البرامج التي تبدأ عند تشغيل جهاز الحاسب ودخولك نظام التشغيل. هذه البرامج تساعدك على العمل في جهاز الحاسب الخاص بك أو الرموز التي تغير الإعدادات المهمة، مثل برامج مكافحة الفيروسات، والتاريخ والوقت، وإعدادات الصوت.</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">📊</span>
-                                شريط المهام
-                            </h3>
-                            <p class="text-sm text-gray-600">تظهر كل نافذة تفتحها في شريط المهام أيضاً ليتم الوصول إليها بسهولة في أي وقت تريده، مما يتيح العمل على عدة برامج في نفس الوقت.</p>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">📌</span>
-                                شريط المهام السفلي
-                            </h3>
-                            <p class="text-sm text-gray-600">يمكنك وضع جميع البرامج التي تستخدمها بصورة متكررة هنا، حيث يمكنك فتحها بضغطة واحدة.</p>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-lg p-4 card-hover">
-                            <h3 class="font-bold text-gray-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">▶️</span>
-                                زر البدء
-                            </h3>
-                            <p class="text-sm text-gray-600">يمكن الوصول من خلال هذا الزر إلى جميع البرامج والمجلدات والملفات وجميع أدوات نظام التشغيل.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 p-4 bg-red-50 border-r-4 border-red-400">
-                    <h4 class="font-semibold text-red-800 mb-2 flex items-center">
-                        <span class="text-xl ml-2">⚠️</span>
-                        تحذير
-                    </h4>
-                    <p class="text-sm text-gray-700">
-                        كن حذراً وتأكد من إيقاف تشغيل جهاز الحاسب قبل القيام بتنظيفه وتجنب وجود أي ماء على يديك، ولا تستخدم الماء لتنظيف جهاز الحاسب.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Files Section -->
-        <section id="files-section" class="hidden">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">📁</span>
-                    إدارة الملفات والمجلدات
-                </h2>
-                
-                <div class="space-y-8">
-                    <!-- النافذة الرئيسية -->
-                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🪟</span>
-                            النافذة الرئيسية
-                        </h3>
-                        <p class="text-gray-600 mb-4">يمكن الوصول إلى تقريباً جميع برامج وتطبيقات الويندوز من خلال النافذة الرئيسية.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-blue-700 mb-3">لفتح النافذة الرئيسية:</h4>
-                            <div class="space-y-2">
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm font-bold">1</span>
-                                    <span class="text-gray-600">اضغط على زر بدء (Start)</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm font-bold">2</span>
-                                    <span class="text-gray-600">سيتم فتح النافذة الرئيسية</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-blue-50 p-3 rounded">
-                                <h5 class="font-semibold text-blue-700">يمكنك هنا العثور على جميع البرامج والملحقات المثبتة على جهاز الحاسب الخاص بك</h5>
-                            </div>
-                            <div class="bg-cyan-50 p-3 rounded">
-                                <h5 class="font-semibold text-cyan-700">في هذه المساحة يمكنك مشاهدة البرامج التي ثبتها في قائمة "بدء" لتتمكن من الوصول إليها بسهولة وسرعة أكبر</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- إعدادات المستخدم -->
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">👤</span>
-                            إعدادات المستخدم
-                        </h3>
-                        <p class="text-gray-600 mb-4">من خلال الضغط على أيقونة المستخدم يمكنك الوصول إلى إعدادات حساب مايكروسوفت الخاص بك وضبط إعدادات تسجيل الدخول:</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-green-700 mb-3">للوصول إلى إعدادات المستخدم:</h4>
-                            <div class="space-y-2">
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-bold">1</span>
-                                    <span class="text-gray-600">اضغط على زر بدء (Start)</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-bold">2</span>
-                                    <span class="text-gray-600">اضغط على أيقونة المستخدم</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-3">
-                            <div class="bg-white p-3 rounded">
-                                <h5 class="font-semibold text-gray-700 mb-1">تغيير إعدادات الحساب</h5>
-                                <p class="text-sm text-gray-600">يسمح بإدارة حساب مايكروسوفت الخاص بك حيث يمكنك تغيير خيارات تسجيل الدخول وكذلك تغيير صورة المستخدم.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded">
-                                <h5 class="font-semibold text-gray-700 mb-1">تأمين جهاز الحاسب وإغلاق الشاشة</h5>
-                                <p class="text-sm text-gray-600">يمكن تأمين جهاز الحاسب وإغلاق الشاشة لحمايته من الاستخدام غير المصرح به، باستثناء من يملك كلمة المرور الخاصة بالمستخدم.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded">
-                                <h5 class="font-semibold text-gray-700 mb-1">تسجيل الخروج</h5>
-                                <p class="text-sm text-gray-600">يغلق جميع البرامج ويعيد المستخدم لشاشة تسجيل الدخول. يمكن للمستخدم تسجيل الدخول من جديد أو تسجيل الدخول كمستخدم آخر.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- تنظيم سطح المكتب -->
-                    <div class="bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🗂️</span>
-                            تنظيم سطح المكتب
-                        </h3>
-                        <p class="text-gray-600 mb-4">تُعد إدارة الملفات إحدى المزايا الأساسية لنظام التشغيل حيث يتيح نظام ويندوز للمستخدم إدارة ملفاته ومجلداته. فعند وجود الكثير من الملفات على سطح المكتب، يُفضل تنظيمها في مجلدات.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-purple-700 mb-2">هيكل المجلدات</h4>
-                            <p class="text-sm text-gray-600 mb-3">هيكلة المجلدات تشبه الشجرة ذات الفروع. لاحظ في المخططات الشجرية أدناه كيف تؤثر كل حركة محتملة للمجلد على بنية المجلد.</p>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-lg">
-                                <h5 class="font-semibold text-purple-700 mb-2">عملية النسخ</h5>
-                                <p class="text-sm text-gray-600">ستكون النتيجة بهذا الشكل عند الضغط على أمر النسخ.</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h5 class="font-semibold text-purple-700 mb-2">عملية القص</h5>
-                                <p class="text-sm text-gray-600">ستكون النتيجة بهذا الشكل عند الضغط على أمر القص.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- نصيحة ذكية -->
-                    <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-2xl ml-2">💡</span>
-                            نصيحة ذكية
-                        </h3>
-                        <p class="text-gray-600">
-                            تُعد أوامر النسخ والقص واللصق أكثر الأوامر المستخدمة شيوعاً عند مستخدمي جهاز الحاسب. تذكر هذه الأوامر جيداً حيث ستستخدمها بنفس الطريقة في كل البرامج من خلال القيام بما يلي: تحديد العنصر، ونسخه أو قصه، ثم نقله إلى المكان الذي تريده ولصقه.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Storage Section -->
-        <section id="storage-section" class="hidden">
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span class="text-4xl ml-3">💾</span>
-                    إدارة أجهزة التخزين
-                </h2>
-                
-                <div class="space-y-8">
-                    <!-- البحث عن الملفات -->
-                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🔍</span>
-                            البحث عن ملف أو مجلد
-                        </h3>
-                        <p class="text-gray-600 mb-4">عندما يكون لديك الكثير من الملفات على جهاز الحاسب الخاص بك فمن الطبيعي أن تنسى المكان الذي حفظتها فيه، لذلك إذا كنت بحاجة إلى ملف فيمكنك البحث عنه.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-blue-700 mb-3">للبحث عن ملف أو مجلد:</h4>
-                            <div class="space-y-2">
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-bold">1</span>
-                                    <span class="text-gray-600">في الزاوية العلوية اليسرى من النافذة المفتوحة ستلاحظ وجود مربع نص خاص بالبحث السريع. اكتب اسم الملف الذي تريد البحث عنه هنا.</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-bold">2</span>
-                                    <span class="text-gray-600">سيبحث ويندوز تلقائياً عن الملفات بهذا الاسم ويعرضها.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded-lg">
-                            <h4 class="font-semibold text-cyan-700 mb-3">لمشاهدة محتويات ملف في مجلد دون فتحه:</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs font-bold">1</span>
-                                    <span>اضغط على أيقونة مستكشف الملفات (File Explorer) ثم على المستندات (Documents)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs font-bold">2</span>
-                                    <span>سيظهر مجلد المستندات (Documents)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs font-bold">3</span>
-                                    <span>من عامة تبويب عرض (View) في مجموعة اللوحات (Panes) اضغط على زر جزء المعاينة (Preview Pane)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs font-bold">4</span>
-                                    <span>اضغط على الملف الذي ترغب برؤية محتوياته في لوحة المعاينة (Preview Pane)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- عناصر النافذة -->
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🪟</span>
-                            عناصر النافذة
-                        </h3>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="space-y-3">
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-green-700 mb-1">زر التكبير</h5>
-                                    <p class="text-sm text-gray-600">يُغير حجم النافذة من الحجم المحدد مسبقاً إلى كامل الشاشة.</p>
-                                </div>
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-green-700 mb-1">زر التصغير</h5>
-                                    <p class="text-sm text-gray-600">ينقل النافذة إلى شريط المهام لتتمكن من استخدامها لاحقاً.</p>
-                                </div>
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-green-700 mb-1">زر الإغلاق (Close)</h5>
-                                    <p class="text-sm text-gray-600">يغلق النافذة.</p>
-                                </div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-emerald-700 mb-1">زر رجوع (Back)</h5>
-                                    <p class="text-sm text-gray-600">يمكنك العودة إلى المجلد السابق من خلاله.</p>
-                                </div>
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-emerald-700 mb-1">مسار المجلد</h5>
-                                    <p class="text-sm text-gray-600">يعرض هنا مسار المجلد.</p>
-                                </div>
-                                <div class="bg-white p-3 rounded">
-                                    <h5 class="font-semibold text-emerald-700 mb-1">جزء المعاينة (Preview Pane)</h5>
-                                    <p class="text-sm text-gray-600">يتيح رؤية محتوى بعض الملفات دون الحاجة لفتحها.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- المجلدات الافتراضية -->
-                    <div class="bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">📁</span>
-                            المجلدات الافتراضية
-                        </h3>
-                        <p class="text-gray-600 mb-4">مجلد المستندات (Documents) هو مجلد افتراضي يمكنك استخدامه لتنظيم وتخزين بياناتك. تُستخدم مجلدات الصوتيات والصور للغرض نفسه.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg">
-                            <p class="text-sm text-gray-700">
-                                <strong>معلومة:</strong> يتم تمثيل المجلد بأيقونة صفراء اللون، وقد يحتوي المجلد على مجلدات فرعية أو أيقونات أخرى تُسمى "الملفات".
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- طرق متقدمة لنقل الملفات -->
-                    <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🔄</span>
-                            طرق متقدمة لنسخ ونقل الملفات والمجلدات
-                        </h3>
-                        <p class="text-gray-600 mb-4">هناك طرق أكثر سهولة لنسخ أو نقل الملفات والمجلدات مثل السحب والإفلات. يتيح لك السحب والإفلات نقل ملف أو مجلد إلى موقع محدد تتم الإشارة إليه بالفأرة.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-orange-700 mb-3">لسحب وإفلات (نقل) عنصر:</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-bold">1</span>
-                                    <span>حدد موقع الملف أو المجلد الذي تريد نقله</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-bold">2</span>
-                                    <span>افتح المجلد الذي تريد نقل ملف أو مجلد إليه أو وضعه بالقرب منه</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-bold">3</span>
-                                    <span>اضغط بصورة مستمرة على الملف أو المجلد الذي ترغب بنقله وانقل مؤشر الفأرة إلى النافذة الأخرى</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-bold">4</span>
-                                    <span>أفلت زر الفأرة</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-red-700 mb-3">لإرسال عنصر إلى جهاز تخزين:</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">1</span>
-                                    <span>حدد موقع الملف أو المجلد الذي تريد نسخه</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">2</span>
-                                    <span>اضغط بزر الفأرة الأيمن عليه واضغط على إرسال إلى (Send to)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">3</span>
-                                    <span>اضغط على جهاز التخزين المطلوب</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-blue-50 border-r-4 border-blue-400">
-                            <p class="text-sm text-gray-700">
-                                <strong>ملاحظة:</strong> إذا ضغطت باستمرار على زر الفأرة بالإضافة لزر ctrl سيتم نسخ الملف بدلاً من نقله. كما يمكنك أيضاً نسخ عنصر مباشرة إلى جهاز تخزين ببضع خطوات.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- خصائص الملفات -->
-                    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">⚙️</span>
-                            خصائص الملفات
-                        </h3>
-                        <p class="text-gray-600 mb-4">لقد تعرفت مسبقاً على كيفية إنشاء الملفات والمجلدات. الآن حان الوقت لاستعراض بعض المزايا المتقدمة. يحتوي كل ملف أو مجلد على بعض المعلومات الخاصة به مثل تاريخ إنشائه على القرص الصلب وغير ذلك من المعلومات.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-indigo-700 mb-3">لاستعراض خصائص الملف:</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold">1</span>
-                                    <span>حدد موقع الملف في القرص الثابت على سبيل المثال في المستندات (Documents) لديك</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold">2</span>
-                                    <span>اضغط بزر الفأرة الأيمن واضغط على خصائص (Properties)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold">3</span>
-                                    <span>ستظهر نافذة خصائص (Properties)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold">4</span>
-                                    <span>راجع المعلومات التي تريدها أو طبق أي تغييرات واضغط موافق (OK)</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>نوع الملف (Type of file):</strong> يُخبرك بنوع الملف، على سبيل المثال .doc
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>فتح باستخدام (Opens with):</strong> البرنامج المحدد لفتح هذا النوع من الملفات
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>الموقع (Location):</strong> يوضح مكان وجود الملف في القرص
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>الحجم (Size):</strong> يوضح حجم الملف
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>تاريخ الإنشاء (Created):</strong> يعرض تاريخ إنشاء الملف
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>تاريخ التعديل (Modified):</strong> يعرض تاريخ تعديل الملف آخر مرة
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>التشغيل الأخير (Accessed):</strong> يعرض تاريخ فتح الملف آخر مرة
-                                </div>
-                                <div class="bg-white p-3 rounded text-sm">
-                                    <strong>للقراءة فقط (Read-only):</strong> يؤمّن الملف ولا يسمح بأي تغييرات
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- إدارة أجهزة التخزين -->
-                    <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">💻</span>
-                            إدارة أجهزة التخزين الخاصة بك
-                        </h3>
-                        <p class="text-gray-600 mb-4">تتمثل إحدى المهام الأساسية لنظام التشغيل في إدارة أشياء كثيرة من بينها جميع أجهزة التخزين الخاصة بجهاز الحاسب. يمكنك العثور على جميع أجهزة التخزين أو أماكن الشبكة التي يتصل بها جهاز الحاسب بالضغط على هذا الحاسب الشخصي (This PC).</p>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-lg">
-                                <h5 class="font-semibold text-cyan-700 mb-2">محرك الأقراص المضغوطة أو أقراص DVD</h5>
-                                <p class="text-sm text-gray-600">لقراءة الأقراص المضغوطة وأقراص الفيديو الرقمية</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h5 class="font-semibent text-cyan-700 mb-2">محرك القرص الصلب</h5>
-                                <p class="text-sm text-gray-600">الشريط الموجود بجانب أيقونة محرك الأقراص يعرض لك مساحة وحدة التخزين لديك، حيث يبين الجزء الأزرق المساحة المشغولة بينما يُظهر الجزء الأبيض المساحة الحرة</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h5 class="font-semibold text-cyan-700 mb-2">بطاقة الذاكرة أو محرك USB</h5>
-                                <p class="text-sm text-gray-600">تظهر هنا بطاقة الذاكرة أو محرك USB عند توصيله بجهاز الحاسب</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- إزالة جهاز التخزين -->
-                    <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">🔌</span>
-                            إزالة جهاز التخزين
-                        </h3>
-                        <p class="text-gray-600 mb-4">كما تعلمت سابقاً فإن جميع أجهزة التخزين الملحقة يتم عرضها في أيقونة "هذا الحاسوب الشخصي". عند توصيلك لبطاقة ذاكرة أو محرك أقراص خارجي لأول مرة سيتعين عليك الانتظار قليلاً ليتعرف جهاز الحاسب على هذا الجهاز ومن ثم يتم عرضه.</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-red-700 mb-3">لإزالة جهاز التخزين:</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">1</span>
-                                    <span>من نافذة مستكشف الملفات (File Explorer) افتح هذا الحاسوب الشخصي (This PC)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">2</span>
-                                    <span>اضغط بزر الفأرة الأيمن على جهاز التخزين الخاص بك ثم اضغط على إخراج (Eject)</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">3</span>
-                                    <span>انتظر حتى تظهر رسالة التأكيد واسحب الجهاز للخارج</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-bold">4</span>
-                                    <span>سيختفي الجهاز من نافذة هذا الحاسوب الشخصي (This PC)</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-yellow-50 p-4 rounded-lg border-r-4 border-yellow-400">
-                            <p class="text-sm text-gray-700">
-                                <strong>مهم:</strong> يتم توصيل معظم أجهزة التخزين من خلال منفذ يو إس بي (USB). عندما تنتهي من العمل مع الملفات الموجودة على جهاز التخزين الخارجي، وقبل إزالة الجهاز فعلياً وسحبه يجب إزالته من نظام التشغيل لأنه في الواقع ربما لا يزال جهاز الحاسب ينقل البيانات إلى جهاز التخزين.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- إيقاف تشغيل الحاسب -->
-                    <div class="bg-gradient-to-r from-gray-50 to-slate-50 rounded-lg p-6 card-hover">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="text-2xl ml-2">⏻</span>
-                            إيقاف تشغيل جهاز الحاسب
-                        </h3>
-                        <p class="text-gray-600 mb-4">يُعد إيقاف تشغيل جهاز الحاسب بطريقة صحيحة أحد الأمور المهمة، وخطواتها كالتالي:</p>
-                        
-                        <div class="bg-white p-4 rounded-lg mb-4">
-                            <h4 class="font-semibold text-gray-700 mb-3">لإيقاف تشغيل جهاز الحاسب:</h4>
-                            <div class="space-y-2">
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-bold">1</span>
-                                    <span class="text-gray-600">اضغط على زر بدء (Start) ثم اضغط على زر الطاقة (Power)</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-bold">2</span>
-                                    <span class="text-gray-600">اضغط على زر إيقاف التشغيل (Shut Down)</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4 mb-4">
-                            <div class="bg-white p-3 rounded">
-                                <h5 class="font-semibold text-gray-700 mb-1">وضعية السكون (Sleep)</h5>
-                                <p class="text-sm text-gray-600">تجعل جهاز الحاسب في حالة توفير الطاقة، حيث يمكن أن يعود جهاز الحاسب للعمل خلال ثوان قليلة عندما تضغط على أي مفتاح من لوحة المفاتيح.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded">
-                                <h5 class="font-semibold text-gray-700 mb-1">إعادة التشغيل (Restart)</h5>
-                                <p class="text-sm text-gray-600">خيار يوقف تشغيل جهاز الحاسب ثم يعيد تشغيله فوراً مرة أخرى.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-red-50 border-r-4 border-red-400">
-                            <h4 class="font-semibold text-red-800 mb-2 flex items-center">
-                                <span class="text-xl ml-2">⚠️</span>
-                                كن حذراً
-                            </h4>
-                            <p class="text-sm text-gray-700">
-                                عند وجود أمطار وصواعق رعدية، يُنصح بعدم تشغيل جهاز الحاسب حيث أنه قد تتأثر شبكة الكهرباء وتؤدي إلى إتلاف جهاز الحاسب الخاص بك. لذلك افصل جهاز الحاسب تجنباً للأخطار المحتملة.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- نصيحة ذكية أخيرة -->
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-2xl ml-2">💡</span>
-                            نصيحة ذكية
-                        </h3>
-                        <p class="text-gray-600">
-                            يحتاج جهاز الحاسب لمهارة عملية وليس مجرد دراسة نظرية فحاول الجمع بين الأمور التي تعلمتها واكتشف البرامج لتتطور مهاراتك.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-lg mb-2">💻 دليل شامل لفهم نظام التشغيل</p>
-            <p class="text-gray-400">تعلم المفاهيم الأساسية لنظام التشغيل والتعامل مع الملفات بطريقة تفاعلية</p>
-        </div>
-    </footer>
-
-    <div class="flex justify-center mt-6">
-        <!-- زر العودة للصفحة الرئيسية (أخضر بتدرج) -->
-        <a href="index.html"
-           class="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center space-x-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2z" clip-rule="evenodd"/>
-            </svg>
-            <span>العودة للصفحة الرئيسية</span>
-        </a>
-    </div>
-
-    <script>
-        function showSection(sectionName) {
-            // Hide all sections
-            const sections = ['intro', 'components', 'startup', 'desktop', 'files', 'storage'];
-            sections.forEach(section => {
-                const element = document.getElementById(section + '-section');
-                const button = document.getElementById('btn-' + section);
-                
-                if (section === sectionName) {
-                    element.classList.remove('hidden');
-                    element.classList.add('fade-in');
-                    button.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
-                    button.classList.add('section-active');
-                } else {
-                    element.classList.add('hidden');
-                    element.classList.remove('fade-in');
-                    button.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
-                    button.classList.remove('section-active');
-                }
-            });
-        }
-
-        // Initialize with intro section
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('intro');
-        });
- <!-- زر العودة للصفحة الرئيسية (أخضر بتدرج) -->
-    <a href="index.html"
-       class="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center space-x-2">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2z" clip-rule="evenodd"/>
-        </svg>
-        <span>العودة للصفحة الرئيسية</span>
-    </a>
-    </script>
-
-</body>
-</html>

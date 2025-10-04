@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درس التنسيق المتقدم</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .home-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .lesson-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #4facfe;
+        }
+
+        .lesson-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lesson-section h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-size: 1.4rem;
+        }
+
+        .steps-list {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .steps-list ol {
+            margin: 0;
+            padding-right: 20px;
+        }
+
+        .steps-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .steps-list li strong {
+            color: #4facfe;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .example-box::before {
+            content: "💡";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .example-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        .hanging-indent-example {
+            text-indent: -30px;
+            padding-right: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            padding-right: 50px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .bordered-example {
+            border: 3px double #4facfe;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+        }
+
+        .font-effects-demo {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .strikethrough { text-decoration: line-through; }
+        .double-strikethrough { text-decoration: line-through double; }
+        .underline-colored { text-decoration: underline; text-decoration-color: #e74c3c; text-decoration-thickness: 2px; }
+        .superscript { vertical-align: super; font-size: 0.8em; }
+        .subscript { vertical-align: sub; font-size: 0.8em; }
+        .small-caps { font-variant: small-caps; }
+        .all-caps { text-transform: uppercase; }
+
+        .tip-box {
+            background: #e8f5e8;
+            border-right: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .tip-box h4 {
+            color: #27ae60;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .lesson-section {
+                padding: 20px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="#home" class="home-icon" onclick="goHome()" title="العودة للصفحة الرئيسية">
+                🏠
+            </a>
+            <h1>📚 درس التنسيق المتقدم</h1>
+            <p>تعلم ميزات التنسيق المتقدمة للنصوص والفقرات</p>
+        </div>
+
+        <div class="content">
+            <!-- البادئة المعلقة -->
+            <div class="lesson-section">
+                <h2>📝 إنشاء مسافة بادئة معلقة</h2>
+                <p>بعد أن تعلمت سابقاً كيفية تطبيق التنسيق الأساسي على النصوص، ستتعرف في هذا الدرس على المزيد من مزايا التنسيق المتقدم للفقرات والنصوص.</p>
+                
+                <div class="steps-list">
+                    <h3>خطوات إنشاء البادئة المعلقة:</h3>
+                    <ol>
+                        <li>حدد <strong>الفقرة</strong></li>
+                        <li>من علامة التبويب الشريط الرئيسي <strong>(Home)</strong>، من مجموعة فقرة <strong>(Paragraph)</strong>، اضغط على رز إعدادات الفقرة <strong>(Paragraph Settings)</strong></li>
+                        <li>من مجموعة مسافة بادئة <strong>(Indentation)</strong>، من القائمة خاص <strong>(Special)</strong>، اضغط على المعلقة <strong>(Hanging)</strong></li>
+                        <li>اضغط على السهم لتغيير مقدار مسافة البادئة التي تريد تطبيقها</li>
+                        <li>اضغط على <strong>موافق (OK)</strong></li>
+                        <li>تم تنسيق فقرتك</li>
+                    </ol>
+                </div>
+
+                <div class="example-box">
+                    <h4>مثال على البادئة المعلقة:</h4>
+                    <div class="hanging-indent-example">
+                        هذه فقرة تجريبية توضح البادئة المعلقة. السطر الأول يبدأ من الهامش، بينما باقي الأسطر تبدأ بمسافة بادئة. هذا النوع من التنسيق مفيد جداً في كتابة المراجع والقوائم.
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 نصيحة مهمة</h4>
+                    <p>في القائمة خاص (Special)، يمكنك اختيار كون السطر الأول من الفقرة ذا مسافة بادئة أو معلقاً.</p>
+                </div>
+            </div>
+
+            <!-- الحدود والتظليل المتقدم -->
+            <div class="lesson-section">
+                <h2>🖼️ الحدود والتظليل المتقدم</h2>
+                <p>يمكنك إنشاء حدود وتظليل مخصص وتطبيق أنماط مختلفة من الحدود، وإضافة المزيد من الألوان، أو حتى إضافة حدود للصفحات.</p>
+
+                <div class="steps-list">
+                    <h3>لتطبيق حدود فقرة مخصصة:</h3>
+                    <ol>
+                        <li>حدد الفقرة، وفي علامة التبويب الشريط الرئيسي <strong>(Home)</strong>، من المجموعة فقرة <strong>(Paragraph)</strong>، اضغط على السهم الصغير الموجود بجانب رز حدود <strong>(Borders)</strong></li>
+                        <li>اضغط على حدود وتظليل <strong>(Borders and Shading)</strong>، وستظهر نافذة حدود وتظليل</li>
+                        <li>ضمن علامة التبويب حدود <strong>(Borders)</strong>، من مجموعة الإعداد <strong>(Setting)</strong>، اضغط على مخصص <strong>(Custom Border)</strong></li>
+                        <li>من قائمة النمط <strong>(Style)</strong>، اضغط على الخط المزدوج</li>
+                        <li>اختر اللون <strong>(Color)</strong> والعرض <strong>(Width)</strong> الذي تريده</li>
+                        <li>من مجموعة معاينة <strong>(Preview)</strong>، اضغط على الحدود العليا <strong>(Top Border)</strong> والحدود السفلى <strong>(Bottom Border)</strong></li>
+                        <li>ثم اضغط على موافق <strong>(OK)</strong></li>
+                    </ol>
+                </div>
+
+                <div class="example-box">
+                    <h4>مثال على الحدود المخصصة:</h4>
+                    <div class="bordered-example">
+                        هذا نص محاط بحدود مزدوجة ملونة. يمكن استخدام هذا النوع من التنسيق لإبراز النصوص المهمة أو لإنشاء مربعات تحتوي على معلومات خاصة.
+                    </div>
+                </div>
+
+                <div class="steps-list">
+                    <h3>لتطبيق حدود الصفحة:</h3>
+                    <ol>
+                        <li>افتح نافذة حدود وتظليل <strong>(Borders and Shading)</strong> واضغط على علامة تبويب حد الصفحة <strong>(Page Border)</strong></li>
+                        <li>من مجموعة الإعداد <strong>(Setting)</strong>، اضغط على إحاطة <strong>(Box)</strong></li>
+                        <li>من قائمة رسم/صورة <strong>(Art)</strong>، حدد النقش الذي تريد استخدامه واضغط على موافق <strong>(OK)</strong></li>
+                        <li>ستظهر حدود الصفحة بالنقش المحدد على صفحتك</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- تنسيق الخط -->
+            <div class="lesson-section">
+                <h2>✨ تنسيق الخط</h2>
+                <p>توجد جميع أدوات تنسيق الخطوط داخل مجموعة خط (Font). كما أن هناك المزيد من الخيارات المتاحة إضافة لهذه المجموعة.</p>
+
+                <div class="steps-list">
+                    <h3>لإضافة تسطير مزدوج:</h3>
+                    <ol>
+                        <li>حدد كلمة أو عبارة</li>
+                        <li>من علامة التبويب الشريط الرئيسي <strong>(Home)</strong>، من المجموعة خط <strong>(Font)</strong>، اضغط رز إعدادات الفقرة <strong>(Paragraph Settings)</strong></li>
+                        <li>ستظهر النافذة خط <strong>(Font)</strong></li>
+                        <li>من قائمة نمط التسطير <strong>(Underline Style)</strong>، اضغط على الخط الغامق، ومن قائمة لون التسطير <strong>(Underline Color)</strong>، اضغط على اللون الأحمر الغامق</li>
+                        <li>اضغط على موافق <strong>(OK)</strong></li>
+                    </ol>
+                </div>
+
+                <div class="example-box">
+                    <h4>أمثلة على تأثيرات الخط المختلفة:</h4>
+                    <div class="font-effects-demo">
+                        <p>النص العادي بدون تأثيرات</p>
+                        <p class="strikethrough">نص بخط متوسط (Strikethrough)</p>
+                        <p class="double-strikethrough">نص بخط متوسط مزدوج (Double Strikethrough)</p>
+                        <p class="underline-colored">نص بتسطير ملون</p>
+                        <p>نص مرتفع: H<span class="superscript">2</span>O (Superscript)</p>
+                        <p>نص منخفض: CO<span class="subscript">2</span> (Subscript)</p>
+                        <p class="small-caps">أحرف استهلالية صغيرة (Small Caps)</p>
+                        <p class="all-caps">أحرف استهلالية كبيرة (All Caps)</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>🎨 معلومة إضافية</h4>
+                    <p>تعلمت سابقاً تأثيرات مختلفة على الأحرف مثل خط متوسط (Strikethrough) ومرتفع (Superscript) ومنخفض (Subscript). يمكنك أيضاً تطبيق تأثيرات أخرى مثل خط متوسط مزدوج (Double Strikethrough) وأحرف استهلالية صغيرة (Small Caps) وأحرف استهلالية كبيرة (All Caps) وراقب ما يحدث بها.</p>
+                </div>
+            </div>
+
+            <!-- تنسيق الفقرة المتقدم -->
+            <div class="lesson-section">
+                <h2>📐 تنسيق الفقرة المتقدم</h2>
+                <p>لاستخدام التنسيق المتقدم للفقرات، ستبدأ بإنشاء فقرة تحتوي على مسافة بادئة في جميع الأسطر عدا السطر الأول. يطلق على هذه المسافة اسم مسافة بادئة معلقة (Hanging Indent).</p>
+
+                <div class="steps-list">
+                    <h3>عناصر تنسيق الفقرة:</h3>
+                    <ol>
+                        <li><strong>تغيير المحاذاة (Alignment Changes):</strong> تغير محاذاة فقرتك</li>
+                        <li><strong>قبل النص (Before text) وبعد النص (After text):</strong> تحدد مسافة البادئة اليسرى واليمنى للفقرة</li>
+                        <li><strong>قبل (Before) وبعد (After):</strong> تحدد المسافة قبل وبعد الفقرة المحددة</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <h4>⚠️ تحكم في الأسطر الوحيدة والناقصة</h4>
+                    <p>في علامة تبويب فواصل صفحات وأسطر (Line and Page Breaks)، يمكن العثور على عنصر التحكم بالأسطر الناقصة/الوحيدة (Widow/Orphan control). السطر الناقص هو آخر سطر من فقرة مكتوبة بمفردها في أعلى الصفحة، بينما السطر الوحيد هو أول سطر من فقرة مكتوبة بمفردها في أسفل الصفحة. عند تحديد هذا الخيار يلغي مايكروسوفت وورد وجود سطر بمفرده أعلى أو أسفل الصفحة.</p>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <a href="#" onclick="goHome()" class="nav-button">
+                    🏠 العودة للرئيسية
+                </a>
+                <a href="#" onclick="nextLesson()" class="nav-button">
+                    الدرس التالي ⬅️
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goHome() {
+            // محاكاة الانتقال للصفحة الرئيسية في نفس التبويب
+            window.location.hash = 'home';
+            
+            // يمكنك تخصيص هذه الدالة للانتقال لصفحة معينة
+            // مثال: window.location.href = 'index.html';
+            
+            // أو عرض رسالة للمستخدم
+            alert('سيتم الانتقال للصفحة الرئيسية');
+        }
+
+        function nextLesson() {
+            // محاكاة الانتقال للدرس التالي
+            window.location.hash = 'next-lesson';
+            alert('سيتم الانتقال للدرس التالي');
+        }
+
+        // إضافة تأثيرات بصرية عند التحميل
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.lesson-section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // تأثير التمرير السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9895ea6a8192ed45',t:'MTc1OTU5Mzg3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
