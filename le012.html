@@ -1,165 +1,334 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ملخص نظام التشغيل مع اختبار</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { box-sizing: border-box; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .section-active { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; }
-        .fade-in { animation: fadeIn 0.5s ease-in; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .quiz-option:hover {
-            background-color: #e0e7ff;
-            cursor: pointer;
-        }
-        .quiz-option.selected {
-            background-color: #c7d2fe;
-        }
-        .quiz-result {
-            margin-top: 1rem;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مراجعة للوحدة الأولى</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: "Tahoma", Arial, sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      background-color: #ffffff;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f8f9fa;
+      border-right: 4px solid #3498db;
+    }
+    .question h3 {
+      margin: 0 0 15px 0;
+      color: #2c3e50;
+      font-size: 18px;
+    }
+    .options {
+      margin-top: 15px;
+    }
+    .options label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+      padding: 12px 15px;
+      border-radius: 8px;
+      background: white;
+      border: 2px solid #e9ecef;
+      transition: all 0.3s ease;
+    }
+    .options label:hover {
+      background: #e3f2fd;
+      border-color: #3498db;
+    }
+    .options input[type="radio"] {
+      margin-left: 10px;
+      transform: scale(1.2);
+    }
+    .btn-check, .btn-home {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    }
+    .btn-check:hover, .btn-home:hover {
+      background: linear-gradient(135deg, #2980b9, #1f5f8b);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+    .result.pass {
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+    }
+    .result.fail {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+    }
+    .center {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .correct {
+      background: #d4edda !important;
+      border-color: #27ae60 !important;
+      color: #155724;
+    }
+    .incorrect {
+      background: #f8d7da !important;
+      border-color: #e74c3c !important;
+      color: #721c24;
+    }
+    .score-display {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <header class="gradient-bg text-white py-6 text-center">
-        <h1 class="text-3xl font-bold">ملخص نظام التشغيل - أسئلة</h1>
-    </header>
+<body>
+  <header>
+    <h1>مراجعة الوحدة الأولى (1 ، 3 ، 12)</h1>
+  </header>
 
-    <main class="container mx-auto px-6 py-8">
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">مفهوم نظام التشغيل <span>🖥️</span></h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                نظام التشغيل هو البرنامج الذي يدير موارد جهاز الحاسب، مثل الذاكرة والمعالج والأجهزة الملحقة، ويوفر بيئة تفاعلية للمستخدم.
-            </p>
-        </section>
+  <div class="container">
+    <form id="quizForm">
 
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">أنواع البرامج <span>📂</span></h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>أنظمة التشغيل: مثل Windows وmacOS، تتحكم في عمل الأجهزة وتدير الموارد.</li>
-                <li>التطبيقات: برامج يستخدمها المستخدم لأداء مهام محددة مثل Word وExcel وPaint.</li>
-            </ul>
-        </section>
+      <!-- سؤال 1 -->
+      <div class="question">
+        <h3>1. ما هي مهمة نظام التشغيل كما ورد في الدرس الأول؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> تنفيذ الألعاب فقط</label>
+          <label><input type="radio" name="q1" value="b"> إدارة موارد الحاسب والتحكم به</label>
+          <label><input type="radio" name="q1" value="c"> تشغيل البرامج المكتبية فقط</label>
+          <label><input type="radio" name="q1" value="d"> حفظ الملفات فقط</label>
+        </div>
+      </div>
 
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">بدء تشغيل جهاز الحاسب <span>💡</span></h2>
-            <p class="text-gray-700 leading-relaxed mb-2">
-                يبدأ تشغيل الحاسب عند الضغط على زر الطاقة، حيث يقوم نظام الإدخال والإخراج الأساسي (BIOS) بتحديد المكونات ثم يبدأ نظام التشغيل بالعمل.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                يدعم نظام التشغيل إنشاء حسابات متعددة للمستخدمين، كل منهم له بيئة خاصة وأذونات تسجيل دخول.
-            </p>
-        </section>
+      <!-- سؤال 2 -->
+      <div class="question">
+        <h3>2. أي من التالي ليس جزءًا من مكونات الحاسب المادية؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> اللوحة الأم</label>
+          <label><input type="radio" name="q2" value="b"> المعالج</label>
+          <label><input type="radio" name="q2" value="c"> نظام التشغيل</label>
+          <label><input type="radio" name="q2" value="d"> الذاكرة العشوائية</label>
+        </div>
+      </div>
 
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">عناصر سطح المكتب <span>🖱️</span></h2>
-            <p class="text-gray-700 leading-relaxed">
-                بعد تسجيل الدخول تظهر مساحة العمل، الأيقونات، شريط المهام، وزر البدء، وهي تساعد المستخدم في الوصول السريع للمهام والتطبيقات.
-            </p>
-        </section>
+      <!-- سؤال 3 -->
+      <div class="question">
+        <h3>3. ما فائدة مدير المهام في نظام التشغيل؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> لتغيير ألوان سطح المكتب</label>
+          <label><input type="radio" name="q3" value="b"> لإيقاف البرامج عند توقفها عن الاستجابة</label>
+          <label><input type="radio" name="q3" value="c"> لتغيير خلفية سطح المكتب</label>
+          <label><input type="radio" name="q3" value="d"> لإدارة ملفات الصوت فقط</label>
+        </div>
+      </div>
 
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">إدارة الملفات <span>📁</span></h2>
-            <p class="text-gray-700 leading-relaxed">
-                يوفر نظام التشغيل واجهة لإدارة الملفات والمجلدات، مع وظائف مثل النسخ، القص، اللصق، وإمكانية البحث عن الملفات بسهولة.
-            </p>
-        </section>
+      <!-- سؤال 4 -->
+      <div class="question">
+        <h3>4. ما الذي يفعله النظام عند "إيقاف التشغيل" (Shut Down)؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> يدخل في وضع السكون فقط</label>
+          <label><input type="radio" name="q4" value="b"> يعيد التشغيل مرة أخرى فورًا</label>
+          <label><input type="radio" name="q4" value="c"> يغلق كل العمليات ويطفئ الحاسب</label>
+          <label><input type="radio" name="q4" value="d"> يضع الحاسب في وضع توفير الطاقة فقط</label>
+        </div>
+      </div>
 
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">أجهزة التخزين <span>💾</span></h2>
-            <p class="text-gray-700 leading-relaxed">
-                يتولى نظام التشغيل إدارة أجهزة التخزين كالقرص الصلب، فلاش USB، والأقراص المضغوطة، مع إمكانية الإزالة الآمنة لهذه الأجهزة.
-            </p>
-        </section>
+      <!-- سؤال 5 -->
+      <div class="question">
+        <h3>5. ما وظيفة شريط المهام في نظام التشغيل ويندوز؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> عرض الساعة فقط</label>
+          <label><input type="radio" name="q5" value="b"> إدارة البرامج المفتوحة والوصول السريع للتطبيقات</label>
+          <label><input type="radio" name="q5" value="c"> تغيير دقة الشاشة فقط</label>
+          <label><input type="radio" name="q5" value="d"> حفظ الملفات تلقائيًا</label>
+        </div>
+      </div>
 
-        <!-- Quiz Section -->
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
-            <h2 class="text-2xl font-semibold mb-4">اختبار اختيار من متعدد 📝</h2>
-            <form id="quizForm">
-                <div class="mb-4">
-                    <label class="block mb-2 font-medium">1. ما هو النظام الذي يدير الموارد ويتيح التفاعل مع المستخدم؟</label>
-                    <div class="space-y-2">
-                        <div class="quiz-option p-2 border rounded" data-answer="false">أ. التطبيقات</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="true">ب. نظام التشغيل</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. معالج الحاسب</div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2 font-medium">2. أي مما يلي من أمثلة التطبيقات؟</label>
-                    <div class="space-y-2">
-                        <div class="quiz-option p-2 border rounded" data-answer="true">أ. Microsoft Word</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="false">ب. وحدة المعالجة المركزية (CPU)</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. نظام ويندوز</div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2 font-medium">3. ماذا يعني زر البدء (Start) في نظام ويندوز؟</label>
-                    <div class="space-y-2">
-                        <div class="quiz-option p-2 border rounded" data-answer="true">أ. الوصول لجميع البرامج والملفات</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="false">ب. إيقاف تشغيل الحاسب فقط</div>
-                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. حجب الإنترنت</div>
-                    </div>
-                </div>
-                <button type="button" id="submitQuiz" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
-                    إرسال الإجابات
-                </button>
-            </form>
-            <div id="quizResult" class="quiz-result text-indigo-700 mt-4"></div>
-        </section>
+      <!-- سؤال 6 -->
+      <div class="question">
+        <h3>6. ما المقصود بـ "البرمجيات" (Software)؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> المكونات المادية للحاسب</label>
+          <label><input type="radio" name="q6" value="b"> البرامج والتطبيقات التي تعمل على الحاسب</label>
+          <label><input type="radio" name="q6" value="c"> الأسلاك والكابلات فقط</label>
+          <label><input type="radio" name="q6" value="d"> الشاشة ولوحة المفاتيح</label>
+        </div>
+      </div>
 
-        <footer class="text-center text-gray-500 mt-12 mb-6">
-            <p>💻 دليل مبسط لنظام التشغيل - الصف الأول المتوسط</p>
-        </footer>
-    </main>
+      <!-- سؤال 7 -->
+      <div class="question">
+        <h3>7. أي من التالي يعتبر من أنواع أنظمة التشغيل؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> Microsoft Word</label>
+          <label><input type="radio" name="q7" value="b"> Windows و Linux و macOS</label>
+          <label><input type="radio" name="q7" value="c"> Google Chrome</label>
+          <label><input type="radio" name="q7" value="d"> Adobe Photoshop</label>
+        </div>
+      </div>
 
-    <script>
-        const options = document.querySelectorAll('.quiz-option');
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                // Deselect siblings
-                const siblings = option.parentElement.querySelectorAll('.quiz-option');
-                siblings.forEach(sib => sib.classList.remove('selected'));
-                // Select clicked
-                option.classList.add('selected');
-            });
+      <!-- سؤال 8 -->
+      <div class="question">
+        <h3>8. ما الفرق بين "إعادة التشغيل" و "إيقاف التشغيل"؟</h3>
+        <div class="options">
+          <label><input type="radio" name="q8" value="a"> لا يوجد فرق بينهما</label>
+          <label><input type="radio" name="q8" value="b"> إعادة التشغيل تطفئ الحاسب ثم تشغله مرة أخرى، بينما إيقاف التشغيل يطفئه فقط</label>
+          <label><input type="radio" name="q8" value="c"> إعادة التشغيل أسرع من إيقاف التشغيل</label>
+          <label><input type="radio" name="q8" value="d"> إيقاف التشغيل يحذف الملفات</label>
+        </div>
+      </div>
+
+      <div class="center">
+        <button type="button" class="btn-check" onclick="checkAnswers()">تحقق من الإجابات</button>
+        <button type="button" class="btn-home" onclick="resetQuiz()">إعادة المحاولة</button>
+        <button type="button" class="btn-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
+      </div>
+
+      <div id="result" class="result">
+        <div class="score-display" id="scoreDisplay"></div>
+        <div id="resultMessage"></div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // الإجابات الصحيحة
+    const correctAnswers = {
+      q1: 'b', // إدارة موارد الحاسب والتحكم به
+      q2: 'c', // نظام التشغيل
+      q3: 'b', // لإيقاف البرامج عند توقفها عن الاستجابة
+      q4: 'c', // يغلق كل العمليات ويطفئ الحاسب
+      q5: 'b', // إدارة البرامج المفتوحة والوصول السريع للتطبيقات
+      q6: 'b', // البرامج والتطبيقات التي تعمل على الحاسب
+      q7: 'b', // Windows و Linux و macOS
+      q8: 'b'  // إعادة التشغيل تطفئ الحاسب ثم تشغله مرة أخرى، بينما إيقاف التشغيل يطفئه فقط
+    };
+
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const formData = new FormData(form);
+      let score = 0;
+      const totalQuestions = Object.keys(correctAnswers).length;
+
+      // إزالة التلوين السابق
+      document.querySelectorAll('.options label').forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+      });
+
+      // فحص كل سؤال
+      for (let question in correctAnswers) {
+        const userAnswer = formData.get(question);
+        const correctAnswer = correctAnswers[question];
+        
+        if (userAnswer === correctAnswer) {
+          score++;
+        }
+
+        // تلوين الإجابات
+        const questionInputs = document.querySelectorAll(`input[name="${question}"]`);
+        questionInputs.forEach(input => {
+          const label = input.parentElement;
+          if (input.value === correctAnswer) {
+            label.classList.add('correct');
+          } else if (input.checked && input.value !== correctAnswer) {
+            label.classList.add('incorrect');
+          }
         });
+      }
 
-        document.getElementById('submitQuiz').addEventListener('click', () => {
-            const selectedOptions = document.querySelectorAll('.quiz-option.selected');
-            if (selectedOptions.length < 3) {
-                alert('يرجى اختيار إجابة لكل سؤال.');
-                return;
-            }
-            let correctCount = 0;
-            selectedOptions.forEach(opt => {
-                if (opt.getAttribute('data-answer') === 'true') correctCount++;
-            });
-            const resultDiv = document.getElementById('quizResult');
-            if (correctCount === 3) {
-                resultDiv.textContent = 'رائع! جميع الإجابات صحيحة 🎉';
-                resultDiv.style.color = 'green';
-            } else {
-                resultDiv.textContent = `لقد أجبت بشكل صحيح على ${correctCount} من 3 أسئلة. حاول مرة أخرى!`;
-                resultDiv.style.color = 'red';
-            }
-        });
-          <!-- زر العودة للصفحة الرئيسية (أخضر بتدرج) -->
-    <a href="index.html"
-       class="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center space-x-2">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2z" clip-rule="evenodd"/>
-        </svg>
-        <span>العودة للصفحة الرئيسية</span>
-    </script>
-</body>
+      // عرض النتيجة
+      const percentage = Math.round((score / totalQuestions) * 100);
+      const resultDiv = document.getElementById('result');
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      const resultMessage = document.getElementById('resultMessage');
+
+      scoreDisplay.textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+
+      if (percentage >= 70) {
+        resultDiv.className = 'result pass';
+        resultMessage.innerHTML = `
+          🎉 ممتاز! لقد نجحت في الاختبار<br>
+          أحسنت، لديك فهم جيد لأساسيات أنظمة التشغيل
+        `;
+      } else {
+        resultDiv.className = 'result fail';
+        resultMessage.innerHTML = `
+          📚 تحتاج لمراجعة أكثر<br>
+          راجع الدروس مرة أخرى وحاول مجددًا
+        `;
+      }
+
+      resultDiv.style.display = 'block';
+      
+      // التمرير للنتيجة
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+      // إعادة تعيين النموذج
+      document.getElementById('quizForm').reset();
+      
+      // إخفاء النتيجة
+      document.getElementById('result').style.display = 'none';
+      
+      // إزالة التلوين
+      document.querySelectorAll('.options label').forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+      });
+
+      // التمرير للأعلى
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goHome() {
+      // فتح الصفحة الرئيسية في نافذة جديدة
+      window.open('/', '_blank', 'noopener,noreferrer');
+    }
+
+    // منع إرسال النموذج
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9893c318c5b5ee71',t:'MTc1OTU3MTI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
