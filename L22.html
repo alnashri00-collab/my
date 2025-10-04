@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ملخص نظام التشغيل مع اختبار</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { box-sizing: border-box; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-active { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .quiz-option:hover {
+            background-color: #e0e7ff;
+            cursor: pointer;
+        }
+        .quiz-option.selected {
+            background-color: #c7d2fe;
+        }
+        .quiz-result {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="gradient-bg text-white py-6 text-center">
+        <h1 class="text-3xl font-bold">ملخص نظام التشغيل - أسئلة</h1>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">مفهوم نظام التشغيل <span>🖥️</span></h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                نظام التشغيل هو البرنامج الذي يدير موارد جهاز الحاسب، مثل الذاكرة والمعالج والأجهزة الملحقة، ويوفر بيئة تفاعلية للمستخدم.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">أنواع البرامج <span>📂</span></h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>أنظمة التشغيل: مثل Windows وmacOS، تتحكم في عمل الأجهزة وتدير الموارد.</li>
+                <li>التطبيقات: برامج يستخدمها المستخدم لأداء مهام محددة مثل Word وExcel وPaint.</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">بدء تشغيل جهاز الحاسب <span>💡</span></h2>
+            <p class="text-gray-700 leading-relaxed mb-2">
+                يبدأ تشغيل الحاسب عند الضغط على زر الطاقة، حيث يقوم نظام الإدخال والإخراج الأساسي (BIOS) بتحديد المكونات ثم يبدأ نظام التشغيل بالعمل.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                يدعم نظام التشغيل إنشاء حسابات متعددة للمستخدمين، كل منهم له بيئة خاصة وأذونات تسجيل دخول.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">عناصر سطح المكتب <span>🖱️</span></h2>
+            <p class="text-gray-700 leading-relaxed">
+                بعد تسجيل الدخول تظهر مساحة العمل، الأيقونات، شريط المهام، وزر البدء، وهي تساعد المستخدم في الوصول السريع للمهام والتطبيقات.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">إدارة الملفات <span>📁</span></h2>
+            <p class="text-gray-700 leading-relaxed">
+                يوفر نظام التشغيل واجهة لإدارة الملفات والمجلدات، مع وظائف مثل النسخ، القص، اللصق، وإمكانية البحث عن الملفات بسهولة.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">أجهزة التخزين <span>💾</span></h2>
+            <p class="text-gray-700 leading-relaxed">
+                يتولى نظام التشغيل إدارة أجهزة التخزين كالقرص الصلب، فلاش USB، والأقراص المضغوطة، مع إمكانية الإزالة الآمنة لهذه الأجهزة.
+            </p>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-6 fade-in">
+            <h2 class="text-2xl font-semibold mb-4">اختبار اختيار من متعدد 📝</h2>
+            <form id="quizForm">
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">1. ما هو النظام الذي يدير الموارد ويتيح التفاعل مع المستخدم؟</label>
+                    <div class="space-y-2">
+                        <div class="quiz-option p-2 border rounded" data-answer="false">أ. التطبيقات</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="true">ب. نظام التشغيل</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. معالج الحاسب</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">2. أي مما يلي من أمثلة التطبيقات؟</label>
+                    <div class="space-y-2">
+                        <div class="quiz-option p-2 border rounded" data-answer="true">أ. Microsoft Word</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="false">ب. وحدة المعالجة المركزية (CPU)</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. نظام ويندوز</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">3. ماذا يعني زر البدء (Start) في نظام ويندوز؟</label>
+                    <div class="space-y-2">
+                        <div class="quiz-option p-2 border rounded" data-answer="true">أ. الوصول لجميع البرامج والملفات</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="false">ب. إيقاف تشغيل الحاسب فقط</div>
+                        <div class="quiz-option p-2 border rounded" data-answer="false">ج. حجب الإنترنت</div>
+                    </div>
+                </div>
+                <button type="button" id="submitQuiz" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                    إرسال الإجابات
+                </button>
+            </form>
+            <div id="quizResult" class="quiz-result text-indigo-700 mt-4"></div>
+        </section>
+
+        <footer class="text-center text-gray-500 mt-12 mb-6">
+            <p>💻 دليل مبسط لنظام التشغيل - الصف الأول المتوسط</p>
+        </footer>
+    </main>
+
+    <script>
+        const options = document.querySelectorAll('.quiz-option');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                // Deselect siblings
+                const siblings = option.parentElement.querySelectorAll('.quiz-option');
+                siblings.forEach(sib => sib.classList.remove('selected'));
+                // Select clicked
+                option.classList.add('selected');
+            });
+        });
+
+        document.getElementById('submitQuiz').addEventListener('click', () => {
+            const selectedOptions = document.querySelectorAll('.quiz-option.selected');
+            if (selectedOptions.length < 3) {
+                alert('يرجى اختيار إجابة لكل سؤال.');
+                return;
+            }
+            let correctCount = 0;
+            selectedOptions.forEach(opt => {
+                if (opt.getAttribute('data-answer') === 'true') correctCount++;
+            });
+            const resultDiv = document.getElementById('quizResult');
+            if (correctCount === 3) {
+                resultDiv.textContent = 'رائع! جميع الإجابات صحيحة 🎉';
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = `لقد أجبت بشكل صحيح على ${correctCount} من 3 أسئلة. حاول مرة أخرى!`;
+                resultDiv.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
