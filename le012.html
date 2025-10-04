@@ -217,121 +217,226 @@
           <label><input type="radio" name="q8" value="d"> إيقاف التشغيل يحذف الملفات</label>
         </div>
       </div>
-
       <div class="center">
-        <button type="button" class="btn-check" onclick="checkAnswers()">تحقق من الإجابات</button>
-        <button type="button" class="btn-home" onclick="resetQuiz()">إعادة المحاولة</button>
-        <button type="button" class="btn-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
-      </div>
+  <button type="button" class="btn-check" onclick="checkAnswers()">تحقق من الإجابات</button>
+  <button type="button" class="btn-home" onclick="resetQuiz()">إعادة المحاولة</button>
+  <button type="button" class="btn-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
+</div>
 
-      <div id="result" class="result">
-        <div class="score-display" id="scoreDisplay"></div>
-        <div id="resultMessage"></div>
-      </div>
-    </form>
-  </div>
+<!-- نافذة التنبيه المخصصة -->
+<div id="customAlert" class="custom-alert">
+  <span id="alertMessage"></span>
+  <span class="close-btn" onclick="closeAlert()">❌</span>
+</div>
 
-  <script>
-    // الإجابات الصحيحة
-    const correctAnswers = {
-      q1: 'b', // إدارة موارد الحاسب والتحكم به
-      q2: 'c', // نظام التشغيل
-      q3: 'b', // لإيقاف البرامج عند توقفها عن الاستجابة
-      q4: 'c', // يغلق كل العمليات ويطفئ الحاسب
-      q5: 'b', // إدارة البرامج المفتوحة والوصول السريع للتطبيقات
-      q6: 'b', // البرامج والتطبيقات التي تعمل على الحاسب
-      q7: 'b', // Windows و Linux و macOS
-      q8: 'b'  // إعادة التشغيل تطفئ الحاسب ثم تشغله مرة أخرى، بينما إيقاف التشغيل يطفئه فقط
-    };
+<div id="result" class="result">
+  <div class="score-display" id="scoreDisplay"></div>
+  <div id="resultMessage"></div>
+</div>
 
-    function checkAnswers() {
-      const form = document.getElementById('quizForm');
-      const formData = new FormData(form);
-      let score = 0;
-      const totalQuestions = Object.keys(correctAnswers).length;
+<script>
+  // الإجابات الصحيحة
+  const correctAnswers = {
+    q1: 'b',
+    q2: 'c',
+    q3: 'b',
+    q4: 'c',
+    q5: 'b',
+    q6: 'b',
+    q7: 'b',
+    q8: 'b'
+  };
 
-      // إزالة التلوين السابق
-      document.querySelectorAll('.options label').forEach(label => {
-        label.classList.remove('correct', 'incorrect');
-      });
+  let alertTimeout;
 
-      // فحص كل سؤال
-      for (let question in correctAnswers) {
-        const userAnswer = formData.get(question);
-        const correctAnswer = correctAnswers[question];
-        
-        if (userAnswer === correctAnswer) {
-          score++;
-        }
+  function showCustomAlert(message, type = "warning") {
+    const alertBox = document.getElementById("customAlert");
+    const alertMessage = document.getElementById("alertMessage");
 
-        // تلوين الإجابات
-        const questionInputs = document.querySelectorAll(`input[name="${question}"]`);
-        questionInputs.forEach(input => {
-          const label = input.parentElement;
-          if (input.value === correctAnswer) {
-            label.classList.add('correct');
-          } else if (input.checked && input.value !== correctAnswer) {
-            label.classList.add('incorrect');
-          }
-        });
-      }
+    alertMessage.textContent = message;
+    alertBox.className = `custom-alert show ${type}`;
 
-      // عرض النتيجة
-      const percentage = Math.round((score / totalQuestions) * 100);
-      const resultDiv = document.getElementById('result');
-      const scoreDisplay = document.getElementById('scoreDisplay');
-      const resultMessage = document.getElementById('resultMessage');
+    if (alertTimeout) clearTimeout(alertTimeout);
 
-      scoreDisplay.textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+    alertTimeout = setTimeout(() => {
+      alertBox.classList.remove("show");
+    }, 4000);
+  }
 
-      if (percentage >= 70) {
-        resultDiv.className = 'result pass';
-        resultMessage.innerHTML = `
-          🎉 ممتاز! لقد نجحت في الاختبار<br>
-          أحسنت، لديك فهم جيد لأساسيات أنظمة التشغيل
-        `;
-      } else {
-        resultDiv.className = 'result fail';
-        resultMessage.innerHTML = `
-          📚 تحتاج لمراجعة أكثر<br>
-          راجع الدروس مرة أخرى وحاول مجددًا
-        `;
-      }
+  function closeAlert() {
+    const alertBox = document.getElementById("customAlert");
+    alertBox.classList.remove("show");
+    if (alertTimeout) clearTimeout(alertTimeout);
+  }
 
-      resultDiv.style.display = 'block';
-      
-      // التمرير للنتيجة
-      resultDiv.scrollIntoView({ behavior: 'smooth' });
-    }
+  function checkAnswers() {
+    const form = document.getElementById('quizForm');
+    const formData = new FormData(form);
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+    let unanswered = [];
 
-    function resetQuiz() {
-      // إعادة تعيين النموذج
-      document.getElementById('quizForm').reset();
-      
-      // إخفاء النتيجة
-      document.getElementById('result').style.display = 'none';
-      
-      // إزالة التلوين
-      document.querySelectorAll('.options label').forEach(label => {
-        label.classList.remove('correct', 'incorrect');
-      });
-
-      // التمرير للأعلى
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function goHome() {
-      // فتح الصفحة الرئيسية في نافذة جديدة
-     
-    }
-
-    // منع إرسال النموذج
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    document.querySelectorAll('.options label').forEach(label => {
+      label.classList.remove('correct', 'incorrect');
     });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9893c318c5b5ee71',t:'MTc1OTU3MTI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+
+    for (let question in correctAnswers) {
+      const userAnswer = formData.get(question);
+      const correctAnswer = correctAnswers[question];
+
+      if (!userAnswer) {
+        unanswered.push(question);
+        continue;
+      }
+
+      if (userAnswer === correctAnswer) score++;
+
+      const questionInputs = document.querySelectorAll(`input[name="${question}"]`);
+      questionInputs.forEach(input => {
+        const label = input.parentElement;
+        if (input.value === correctAnswer && userAnswer === correctAnswer) {
+          label.classList.add('correct');
+        } else if (input.checked && input.value !== correctAnswer) {
+          label.classList.add('incorrect');
+        }
+      });
+    }
+
+    if (unanswered.length > 0) {
+      showCustomAlert(`⚠️ لديك ${unanswered.length} سؤال${unanswered.length > 1 ? 'ات' : ''} لم تُجب عنها. يرجى إكمالها قبل عرض النتيجة.`, "warning");
+      return;
+    }
+
+    const percentage = Math.round((score / totalQuestions) * 100);
+    const resultDiv = document.getElementById('result');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const resultMessage = document.getElementById('resultMessage');
+
+    scoreDisplay.textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+
+    if (percentage >= 70) {
+      resultDiv.className = 'result pass';
+      resultMessage.innerHTML = `🎉 ممتاز! لقد نجحت في الاختبار. استمر على هذا المستوى الرائع!`;
+      showCustomAlert("🎉 أحسنت! نتيجتك ممتازة.", "success");
+    } else {
+      resultDiv.className = 'result fail';
+      resultMessage.innerHTML = `❌ لم تنجح هذه المرة. حاول مرة أخرى بعد مراجعة الدرس.`;
+      showCustomAlert("❌ حاول مجددًا بعد المراجعة.", "error");
+    }
+  }
+
+  function resetQuiz() {
+    const form = document.getElementById('quizForm');
+    form.reset();
+    document.querySelectorAll('.options label').forEach(label => {
+      label.classList.remove('correct', 'incorrect');
+    });
+    document.getElementById('result').className = 'result';
+    document.getElementById('scoreDisplay').textContent = '';
+    document.getElementById('resultMessage').textContent = '';
+    closeAlert();
+  }
+
+  function goHome() {
+    window.location.href = "https://alnashri00-collab.github.io/my/";
+  }
+</script>
+
+<style>
+  .center {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .btn-check, .btn-home {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+  }
+
+  .btn-home {
+    background-color: #28a745;
+  }
+
+  .btn-check:hover, .btn-home:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  .correct {
+    background-color: #c8f7c5;
+  }
+
+  .incorrect {
+    background-color: #f8d7da;
+  }
+
+  .result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .result.pass {
+    color: green;
+    font-weight: bold;
+  }
+
+  .result.fail {
+    color: red;
+    font-weight: bold;
+  }
+
+  .custom-alert {
+    position: fixed;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 17px;
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: 9999;
+  }
+
+  .custom-alert.show {
+    top: 30px;
+    opacity: 1;
+  }
+
+  .custom-alert.warning {
+    background-color: #ffca28;
+    color: #222;
+  }
+
+  .custom-alert.success {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .custom-alert.error {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .custom-alert .close-btn {
+    margin-left: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    float: right;
+  }
+</style>
 
 
-
+       
