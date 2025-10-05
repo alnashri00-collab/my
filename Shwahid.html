@@ -1,383 +1,155 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ملف إنجاز المعلم محمد منصور الناشري</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f7fa;
-    direction: rtl;
-}
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(90deg, #4a90e2, #357ab8);
-    color: #fff;
-}
-header h1 {
-    font-size: 32px;
-    margin: 0;
-}
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-.card {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-.card-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-    cursor: pointer;
-    background: linear-gradient(90deg, #4a90e2, #357ab8);
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    gap: 15px;
-    border-radius: 15px 15px 0 0;
-}
-.card-header span {
-    font-size: 16px;
-    background: rgba(255,255,255,0.2);
-    padding: 5px 12px;
-    border-radius: 20px;
-}
-.card-header i {
-    font-size: 28px;
-    width: 35px;
-    text-align: center;
-}
-.card-header::after {
-    content: '+';
-    font-size: 24px;
-    margin-left: auto;
-}
-.card-header.active::after {
-    content: '−';
-}
-.card-content {
-    display: none;
-    background: #f9f9f9;
-    padding: 20px;
-    animation: fadeIn 0.3s ease-in-out;
-}
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-.card-content .section {
-    margin-bottom: 15px;
-}
-.card-content strong {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-size: 18px;
-}
-.card-content p {
-    margin: 3px 0;
-    line-height: 1.5;
-}
-.drive-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 25px;
-    background: linear-gradient(90deg, #4a90e2, #357ab8);
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.drive-link:hover {
-    background: linear-gradient(90deg, #357ab8, #2a5d91);
-    transform: translateY(-2px);
-}
-@media (max-width: 768px) {
-    .card-header {
-        flex-direction: row;
-        flex-wrap: wrap;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ملف إنجاز المعلم محمد منصور الناشري</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, #f3f4f6, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #333;
     }
-}
-</style>
+    header {
+      background-color: #0b5394;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 2em;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      color: #0b5394;
+      margin-bottom: 10px;
+    }
+    .details {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #0b5394;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #073763;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ccc;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>ملف إنجاز المعلم محمد منصور الناشري</h1>
-</header>
+  <header>
+    📘 ملف إنجاز المعلم محمد منصور الناشري
+  </header>
 
-<main>
+  <div class="container">
 
-<!-- العناصر 1 إلى 11 -->
-<!-- العنصر 1 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-book"></i>
-        ١- أداء الواجبات الوظيفية <span>10%</span>
+    <!-- العنصر 1 -->
+    <div class="card">
+      <h2>🔵 أداء الواجبات الوظيفية</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1W3MXpOh6ak73yoITVV-jHVMrhGYQ_nMd" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃التقيد بالدوام الرسمي</p>
-            <p>⁃تأدية الحصص الدراسية وفق الجدول الدراسي</p>
-            <p>⁃المشاركة في الإشراف والمناوبة وحصص الانتظار</p>
-            <p>⁃إعداد ومتابعة الدروس والواجبات والاختبارات</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃سجل الدوام الرسمي</p>
-            <p>⁃سجل المناوبة والإشراف اليومي</p>
-            <p>⁃سجل الانتظار</p>
-            <p>⁃خطة توزيع المنهج</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/1?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 2 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-users"></i>
-        ٢- التفاعل مع المجتمع المهني <span>10%</span>
+    <!-- العنصر 2 -->
+    <div class="card">
+      <h2>🔵 التفاعل مع المجتمع المهني</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1_k5XJeANbR-Njq_hMM_xQrn7Nct7ZBnL" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃المشاركة الفاعلة في مجتمعات التعلم المهنية</p>
-            <p>⁃تبادل الزيارات</p>
-            <p>⁃الدروس التطبيقية</p>
-            <p>⁃بحث الدرس</p>
-            <p>⁃حضور الدورات والورش التدريبية</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃سجل مجتمعات التعلم المهنية</p>
-            <p>⁃سجل تبادل الزيارات</p>
-            <p>⁃تقرير تنفيذ درس تطبيقي</p>
-            <p>⁃شهادات حضور الدورات والورش التدريبية</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/2?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 3 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-handshake"></i>
-        ٣- التفاعل مع أولياء الأمور <span>10%</span>
+    <!-- العنصر 3 -->
+    <div class="card">
+      <h2>🔵 التفاعل مع أولياء الأمور</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1gK4MKxGUjo0wPd7o1BATBt6TKPypRTgc" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃التواصل الفعال مع أولياء الأمور بالتنسيق مع الموجه الطلابي</p>
-            <p>⁃تزويد أولياء الأمور بمستويات الطلاب</p>
-            <p>⁃إيصال الملاحظات الهامة لأولياء الأمور</p>
-            <p>⁃تفعيل الخطة الأسبوعية للمدرسة</p>
-            <p>⁃المشاركة الفاعلة في الجمعية العمومية للمعلمين وأولياء الأمور</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃صور من الجمعية العمومية لأولياء الأمور والمعلمين</p>
-            <p>⁃تقرير اجتماع ولي الأمر مع المعلم</p>
-            <p>⁃نسخة من الخطة الأسبوعية للمدرسة</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/3?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العناصر 4 إلى 11 بنفس التنسيق مع الروابط العامة -->
-<!-- العنصر 4 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-chalkboard-teacher"></i>
-        ٤- التنويع في استراتيجيات التدريس <span>10%</span>
+    <!-- العنصر 4 -->
+    <div class="card">
+      <h2>🔵 التنويع في استراتيجيات التدريس</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1KRoRyUl4Ul84np4jezaWJL0e6bGrhL2W" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃استخدام استراتيجيات متنوعة تناسب مستويات الطلاب</p>
-            <p>⁃مراعاة الفروق الفردية</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃تقرير عن تطبيق استراتيجية</p>
-            <p>⁃ملف إنجاز المعلم</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/4?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 5 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-chart-line"></i>
-        ٥- تحسين نتائج المتعلمين <span>10%</span>
+    <!-- العنصر 5 -->
+    <div class="card">
+      <h2>🔵 تحسين نتائج المتعلمين</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/16ZGJwU5R4TinbuDRqaWj19Z8ZQphtS-5" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃معالجة الفاقد التعليمي</p>
-            <p>⁃وضع الخطط العلاجية للطلاب الضعاف</p>
-            <p>⁃وضع الخطط الإثرائية للطلاب المتميزين</p>
-            <p>⁃تكريم الطلاب المتميزين والذين تحسّن مستواهم</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃نتائج الاختبار القبلي والبعدي</p>
-            <p>⁃كشف متابعة الطلاب</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/5?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 6 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-calendar-alt"></i>
-        ٦- إعداد وتنفيذ خطة التعلم <span>10%</span>
+    <!-- العنصر 6 -->
+    <div class="card">
+      <h2>🔵 إعداد وتنفيذ خطة التعلم</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1qsYvVaQQl31t0JTPjw0aPUo034-YcIyM" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃توزيع المنهج وإعداد الدروس</p>
-            <p>⁃إعداد الواجبات والاختبارات</p>
-            <p>⁃تنفيذ الدروس</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃خطة توزيع المنهج</p>
-            <p>⁃نموذج من إعداد الدروس</p>
-            <p>⁃نماذج من الواجبات والاختبارات</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/6?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 7 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-laptop-code"></i>
-        ٧- توظيف تقنيات ووسائل التعلم المناسبة <span>10%</span>
+    <!-- العنصر 7 -->
+    <div class="card">
+      <h2>🔵 توظيف تقنيات ووسائل التعلم المناسبة</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1x1SuN8TRPQ2uPmNfyvbA4EvAugeWLMxY" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃دمج التقنية في التعليم</p>
-            <p>⁃التنويع في الوسائل التعليمية</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃صور من الوسائل التعليمية المستخدمة</p>
-            <p>⁃تقرير عن برنامج تقني تم استخدامه</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/7?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 8 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-school"></i>
-        ٨- تهيئة البيئة التعليمية <span>5%</span>
+    <!-- العنصر 8 -->
+    <div class="card">
+      <h2>🔵 تهيئة البيئة التعليمية</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1zfdCJrzzQibwcnuVQ5XhgK51A_OgdU1f" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃مراعاة حاجات الطلاب</p>
-            <p>⁃التهيئة النفسية للطلاب</p>
-            <p>⁃التحفيز المادي والمعنوي</p>
-            <p>⁃توفير متطلبات الدرس</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃تقرير تصنيف الطلاب وفق أنماط التعلم</p>
-            <p>⁃نماذج من التحفيز المادي والمعنوي</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/8?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 9 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-chalkboard"></i>
-        ٩- الإدارة الصفية <span>5%</span>
+    <!-- العنصر 9 -->
+    <div class="card">
+      <h2>🔵 الإدارة الصفية</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1x38roYL9AfbjHFVdL9ir0SF-lF8PkDS1" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃ضبط سلوك الطلاب</p>
-            <p>⁃شد انتباه الطلاب</p>
-            <p>⁃مراعاة الفروق الفردية</p>
-            <p>⁃متابعة الحضور والغياب والتأخر</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃كشف المتابعة</p>
-            <p>⁃تطبيق إدارة الصف</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/9?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 10 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-search"></i>
-        ١٠- تحليل نتائج المتعلمين وتشخيص مستوياتهم <span>10%</span>
+    <!-- العنصر 10 -->
+    <div class="card">
+      <h2>🔵 تحليل نتائج المتعلمين وتشخيص مستوياتهم</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1i9NpHGPmKyBHc1I8kpMV7dX4Dl955MzN" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃تحليل نتائج الاختبارات الفترية والنهائية</p>
-            <p>⁃تصنيف الطلاب وفق نتائجهم</p>
-            <p>⁃معالجة الفاقد التعليمي</p>
-            <p>⁃تحديد نقاط القوة والضعف</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃تقرير تحليل نتائج الطلاب</p>
-            <p>⁃سجل معالجة الفاقد التعليمي</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/10?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-<!-- العنصر 11 -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-tasks"></i>
-        ١١- تنويع أساليب التقويم <span>10%</span>
+    <!-- العنصر 11 -->
+    <div class="card">
+      <h2>🔵 تنويع أساليب التقويم</h2>
+      <a class="btn" href="https://drive.google.com/drive/folders/1H69lblJXjM1WZSzd4AjvrIT8gLm7Yhbg" target="_blank">📂 عرض الملف على Google Drive</a>
     </div>
-    <div class="card-content">
-        <div class="section"><strong>أمثلة على تحقق العنصر:</strong>
-            <p>⁃تطبيق الاختبارات الورقية والإلكترونية</p>
-            <p>⁃المشاريع الطلابية</p>
-            <p>⁃المهام الأدائية</p>
-            <p>⁃ملفات إنجاز الطلاب</p>
-        </div>
-        <div class="section"><strong>الشواهد:</strong>
-            <p>⁃نماذج من الاختبارات</p>
-            <p>⁃نماذج من ملفات إنجاز الطلاب</p>
-            <p>⁃نماذج من المهام الأدائية ومشاريع الطلاب</p>
-        </div>
-        <a class="drive-link" href="https://drive.google.com/drive/folders/1ih59CHTPHQzWwcPD0OVc_93p2urFV1z9/11?usp=sharing" target="_blank">عرض الملف على Google Drive</a>
-    </div>
-</div>
 
-</main>
+  </div>
 
-<script>
-const cards = document.querySelectorAll(".card-header");
-cards.forEach(card => {
-    card.addEventListener("click", () => {
-        card.classList.toggle("active");
-        const content = card.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-});
-</script>
+  <footer>
+    © 2025 جميع الحقوق محفوظة - المعلم محمد منصور الناشري
+  </footer>
 
 </body>
 </html>
