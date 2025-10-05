@@ -1,93 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملف إنجاز المعلم محمد منصور الناشري</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-        }
-        header {
-            background-color: #4a90e2;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-        main {
-            padding: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .collapsible {
-            background-color: white;
-            color: #333;
-            cursor: pointer;
-            padding: 20px;
-            width: 100%;
-            border: none;
-            text-align: right;
-            outline: none;
-            font-size: 18px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .collapsible:after {
-            content: '+';
-            font-size: 20px;
-            color: #4a90e2;
-        }
-        .collapsible.active:after {
-            content: '−';
-        }
-        .content {
-            padding: 0 20px 20px 20px;
-            display: none;
-            overflow: hidden;
-            background-color: white;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-            margin-bottom: 10px;
-        }
-        .weight {
-            color: #4a90e2;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .examples, .evidence {
-            margin: 10px 0;
-        }
-        .examples p, .evidence p {
-            margin: 3px 0;
-            line-height: 1.4;
-        }
-        .drive-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-        .drive-link:hover {
-            background-color: #357ab8;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملف إنجاز المعلم محمد منصور الناشري</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    direction: rtl;
+}
+header {
+    background: linear-gradient(90deg, #4a90e2, #357ab8);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.card-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    background: #e6f0fb;
+}
+.card-header:hover {
+    background: #d0e4f8;
+}
+.card-header span {
+    color: #4a90e2;
+    font-weight: bold;
+}
+.card-header::after {
+    content: '+';
+    font-size: 20px;
+    color: #4a90e2;
+}
+.card-header.active::after {
+    content: '−';
+}
+.card-content {
+    display: none;
+    padding: 15px 20px;
+    background: #fafafa;
+}
+.card-content .section {
+    margin-bottom: 12px;
+}
+.card-content strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+.card-content p {
+    margin: 3px 0;
+    line-height: 1.5;
+}
+.drive-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #4a90e2, #357ab8);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.drive-link:hover {
+    background: linear-gradient(90deg, #357ab8, #2a5d91);
+    transform: translateY(-2px);
+}
+</style>
 </head>
 <body>
 
@@ -97,84 +106,246 @@
 
 <main>
 
-<!-- تكرار هذا البلوك لكل عنصر -->
-<button class="collapsible">١- أداء الواجبات الوظيفية <span class="weight">10%</span></button>
-<div class="content">
-    <div class="examples">
-        <strong>أمثلة على تحقق العنصر:</strong>
-        <p>⁃التقيد بالدوام الرسمي</p>
-        <p>⁃تأدية الحصص الدراسية وفق الجدول الدراسي</p>
-        <p>⁃المشاركة في الإشراف والمناوبة وحصص الانتظار</p>
-        <p>⁃إعداد ومتابعة الدروس والواجبات والاختبارات</p>
+<!-- العنصر 1 -->
+<div class="card">
+    <div class="card-header">١- أداء الواجبات الوظيفية <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃التقيد بالدوام الرسمي</p>
+            <p>⁃تأدية الحصص الدراسية وفق الجدول الدراسي</p>
+            <p>⁃المشاركة في الإشراف والمناوبة وحصص الانتظار</p>
+            <p>⁃إعداد ومتابعة الدروس والواجبات والاختبارات</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃سجل الدوام الرسمي</p>
+            <p>⁃سجل المناوبة والإشراف اليومي</p>
+            <p>⁃سجل الانتظار</p>
+            <p>⁃خطة توزيع المنهج</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
     </div>
-    <div class="evidence">
-        <strong>الشواهد:</strong>
-        <p>⁃سجل الدوام الرسمي</p>
-        <p>⁃سجل المناوبة والإشراف اليومي</p>
-        <p>⁃سجل الانتظار</p>
-        <p>⁃خطة توزيع المنهج</p>
-    </div>
-    <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
 </div>
 
-<button class="collapsible">٢- التفاعل مع المجتمع المهني <span class="weight">10%</span></button>
-<div class="content">
-    <div class="examples">
-        <strong>أمثلة على تحقق العنصر:</strong>
-        <p>⁃المشاركة الفاعلة في مجتمعات التعلم المهنية</p>
-        <p>⁃تبادل الزيارات</p>
-        <p>⁃الدروس التطبيقية</p>
-        <p>⁃بحث الدرس</p>
-        <p>⁃حضور الدورات والورش التدريبية</p>
+<!-- العنصر 2 -->
+<div class="card">
+    <div class="card-header">٢- التفاعل مع المجتمع المهني <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃المشاركة الفاعلة في مجتمعات التعلم المهنية</p>
+            <p>⁃تبادل الزيارات</p>
+            <p>⁃الدروس التطبيقية</p>
+            <p>⁃بحث الدرس</p>
+            <p>⁃حضور الدورات والورش التدريبية</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃سجل مجتمعات التعلم المهنية</p>
+            <p>⁃سجل تبادل الزيارات</p>
+            <p>⁃تقرير تنفيذ درس تطبيقي</p>
+            <p>⁃شهادات حضور الدورات والورش التدريبية</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
     </div>
-    <div class="evidence">
-        <strong>الشواهد:</strong>
-        <p>⁃سجل مجتمعات التعلم المهنية</p>
-        <p>⁃سجل تبادل الزيارات</p>
-        <p>⁃تقرير تنفيذ درس تطبيقي</p>
-        <p>⁃شهادات حضور الدورات والورش التدريبية</p>
-    </div>
-    <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
 </div>
 
-<button class="collapsible">٣- التفاعل مع أولياء الأمور <span class="weight">10%</span></button>
-<div class="content">
-    <div class="examples">
-        <strong>أمثلة على تحقق العنصر:</strong>
-        <p>⁃التواصل الفعال مع أولياء الأمور بالتنسيق مع الموجه الطلابي</p>
-        <p>⁃تزويد أولياء الأمور بمستويات الطلاب</p>
-        <p>⁃إيصال الملاحظات الهامة لأولياء الأمور</p>
-        <p>⁃تفعيل الخطة الأسبوعية للمدرسة</p>
-        <p>⁃المشاركة الفاعلة في الجمعية العمومية للمعلمين وأولياء الأمور</p>
+<!-- العنصر 3 -->
+<div class="card">
+    <div class="card-header">٣- التفاعل مع أولياء الأمور <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃التواصل الفعال مع أولياء الأمور بالتنسيق مع الموجه الطلابي</p>
+            <p>⁃تزويد أولياء الأمور بمستويات الطلاب</p>
+            <p>⁃إيصال الملاحظات الهامة لأولياء الأمور</p>
+            <p>⁃تفعيل الخطة الأسبوعية للمدرسة</p>
+            <p>⁃المشاركة الفاعلة في الجمعية العمومية للمعلمين وأولياء الأمور</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃صور من الجمعية العمومية لأولياء الأمور والمعلمين</p>
+            <p>⁃تقرير اجتماع ولي الأمر مع المعلم</p>
+            <p>⁃نسخة من الخطة الأسبوعية للمدرسة</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
     </div>
-    <div class="evidence">
-        <strong>الشواهد:</strong>
-        <p>⁃صور من الجمعية العمومية لأولياء الأمور والمعلمين</p>
-        <p>⁃تقرير اجتماع ولي الأمر مع المعلم</p>
-        <p>⁃نسخة من الخطة الأسبوعية للمدرسة</p>
-    </div>
-    <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
 </div>
 
-<!-- كرر نفس البنية لبقية العناصر من ٤ إلى ١١ -->
-<!-- يمكنك نسخ الكود أعلاه وتغيير العنوان، الوزن، الأمثلة والشواهد لكل عنصر -->
+<!-- العنصر 4 -->
+<div class="card">
+    <div class="card-header">٤- التنويع في استراتيجيات التدريس <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃استخدام استراتيجيات متنوعة تناسب مستويات الطلاب</p>
+            <p>⁃مراعاة الفروق الفردية</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃تقرير عن تطبيق استراتيجية</p>
+            <p>⁃ملف إنجاز المعلم</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
 
-<script>
-    const coll = document.getElementsByClassName("collapsible");
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script>
+<!-- العنصر 5 -->
+<div class="card">
+    <div class="card-header">٥- تحسين نتائج المتعلمين <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃معالجة الفاقد التعليمي</p>
+            <p>⁃وضع الخطط العلاجية للطلاب الضعاف</p>
+            <p>⁃وضع الخطط الإثرائية للطلاب المتميزين</p>
+            <p>⁃تكريم الطلاب المتميزين والذين تحسّن مستواهم</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃نتائج الاختبار القبلي والبعدي</p>
+            <p>⁃كشف متابعة الطلاب</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 6 -->
+<div class="card">
+    <div class="card-header">٦- إعداد و تنفيذ خطة التعلم <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃توزيع المنهج وإعداد الدروس</p>
+            <p>⁃إعداد الواجبات والاختبارات</p>
+            <p>⁃تنفيذ الدروس</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃خطة توزيع المنهج</p>
+            <p>⁃نموذج من إعداد الدروس</p>
+            <p>⁃نماذج من الواجبات والاختبارات</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 7 -->
+<div class="card">
+    <div class="card-header">٧- توظيف تقنيات و وسائل التعلم المناسبة <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃دمج التقنية في التعليم</p>
+            <p>⁃التنويع في الوسائل التعليمية</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃صور من الوسائل التعليمية المستخدمة</p>
+            <p>⁃تقرير عن برنامج تقني تم استخدامه</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 8 -->
+<div class="card">
+    <div class="card-header">٨- تهيئة البيئة التعليمية <span>5%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃مراعاة حاجات الطلاب</p>
+            <p>⁃التهيئة النفسية للطلاب</p>
+            <p>⁃التحفيز المادي والمعنوي</p>
+            <p>⁃توفير متطلبات الدرس</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃تقرير تصنيف الطلاب وفق أنماط التعلم</p>
+            <p>⁃نماذج من التحفيز المادي والمعنوي</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 9 -->
+<div class="card">
+    <div class="card-header">٩- الإدارة الصفية <span>5%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃ضبط سلوك الطلاب</p>
+            <p>⁃شد انتباه الطلاب</p>
+            <p>⁃مراعاة الفروق الفردية</p>
+            <p>⁃متابعة الحضور والغياب والتأخر</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃كشف المتابعة</p>
+            <p>⁃تطبيق إدارة الصف</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 10 -->
+<div class="card">
+    <div class="card-header">١٠- تحليل نتائج المتعلمين و تشخيص مستوياتهم <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃تحليل نتائج الاختبارات الفترية والنهائية</p>
+            <p>⁃تصنيف الطلاب وفق نتائجهم</p>
+            <p>⁃معالجة الفاقد التعليمي</p>
+            <p>⁃تحديد نقاط القوة والضعف</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃تقرير تحليل نتائج الطلاب</p>
+            <p>⁃سجل معالجة الفاقد التعليمي</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
+
+<!-- العنصر 11 -->
+<div class="card">
+    <div class="card-header">١١- تنويع أساليب التقويم <span>10%</span></div>
+    <div class="card-content">
+        <div class="section">
+            <strong>أمثلة على تحقق العنصر:</strong>
+            <p>⁃تطبيق الاختبارات الورقية والإلكترونية</p>
+            <p>⁃المشاريع الطلابية</p>
+            <p>⁃المهام الأدائية</p>
+            <p>⁃ملفات إنجاز الطلاب</p>
+        </div>
+        <div class="section">
+            <strong>الشواهد:</strong>
+            <p>⁃نماذج من الاختبارات</p>
+            <p>⁃نماذج من ملفات إنجاز الطلاب</p>
+            <p>⁃نماذج من المهام الأدائية ومشاريع الطلاب</p>
+        </div>
+        <a class="drive-link" href="#" target="_blank">عرض الملف على Google Drive</a>
+    </div>
+</div>
 
 </main>
+
+<script>
+const cards = document.querySelectorAll(".card-header");
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("active");
+        const content = card.nextElementSibling;
+        if(content.style.display === "block"){
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
