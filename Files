@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <title>واجهة المعلم</title>
+    <style>
+      body { font-family: Arial; padding: 20px; background: #f0f4f8; }
+      h1 { text-align: center; }
+      .container { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+      select, input { width: 100%; margin: 10px 0; padding: 10px; font-size: 16px; }
+      button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #2c3e50; color: white; border: none; border-radius: 5px; }
+      button:hover { background: #34495e; }
+      p { text-align: center; color: green; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>واجهة المعلم</h1>
+
+      <label>اختر الطالب:</label>
+      <select id="studentSelect">
+        <option value="طالب 1">طالب 1</option>
+        <option value="طالب 2">طالب 2</option>
+        <option value="طالب 3">طالب 3</option>
+        <option value="طالب 4">طالب 4</option>
+        <option value="طالب 5">طالب 5</option>
+        <option value="طالب 6">طالب 6</option>
+        <option value="طالب 7">طالب 7</option>
+        <option value="طالب 8">طالب 8</option>
+        <option value="طالب 9">طالب 9</option>
+        <option value="طالب 10">طالب 10</option>
+        <option value="طالب 11">طالب 11</option>
+        <option value="طالب 12">طالب 12</option>
+        <option value="طالب 13">طالب 13</option>
+        <option value="طالب 14">طالب 14</option>
+        <option value="طالب 15">طالب 15</option>
+        <option value="طالب 16">طالب 16</option>
+        <option value="طالب 17">طالب 17</option>
+        <option value="طالب 18">طالب 18</option>
+        <option value="طالب 19">طالب 19</option>
+        <option value="طالب 20">طالب 20</option>
+        <option value="طالب 21">طالب 21</option>
+        <option value="طالب 22">طالب 22</option>
+        <option value="طالب 23">طالب 23</option>
+      </select>
+
+      <label>اختر الملفات للرفع:</label>
+      <input type="file" id="fileInput" multiple>
+
+      <button onclick="upload()">رفع الملفات</button>
+      <p id="status"></p>
+    </div>
+
+    <script>
+      function upload() {
+        var student = document.getElementById('studentSelect').value;
+        var files = document.getElementById('fileInput').files;
+        if(!files.length) { alert("اختر ملفًا أو أكثر"); return; }
+
+        for(let i=0; i<files.length; i++){
+          let file = files[i];
+          let reader = new FileReader();
+          reader.onload = function(e) {
+            var data = {
+              student: student,
+              fileName: file.name,
+              fileType: file.type,
+              fileBytes: Array.from(new Uint8Array(e.target.result))
+            };
+            google.script.run.withSuccessHandler(function(msg){
+              document.getElementById('status').innerText = msg;
+            }).uploadFile(data);
+          };
+          reader.readAsArrayBuffer(file);
+        }
+      }
+    </script>
+  </body>
+</html>
